@@ -3,9 +3,43 @@
 	margin: 0 auto;
 	position: relative;
 	z-index: 2;
+	padding: 40px 0;
 	.content {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
 		.left {
 			cursor: pointer;
+		}
+		.right {
+			display: flex;
+			align-items: center;
+			gap: 0 30px;
+			ul {
+				display: flex;
+				gap: 0 40px;
+				li {
+					font-size: 14px;
+					font-family: 'Josefin Sans', sans-serif;
+					text-transform: uppercase;
+					letter-spacing: 1px;
+					color: #FFFFFF;
+
+				}
+			}
+			button {
+				color: #ffffff;
+				background-color: #dba765;
+				font-size: 16px;
+				font-weight: 300;
+				transition: 0.3s ease;
+				font-family: 'Cormorant Garamond', serif;
+				padding: 14px 32px;
+				text-transform: uppercase;
+				&:hover {
+					background-color: #000000;
+				}
+			}
 		}
 	}
 }

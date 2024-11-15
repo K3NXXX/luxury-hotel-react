@@ -1,4 +1,5 @@
-import React from 'react'
+import 'animate.css'
+import React, { useState } from 'react'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import { A11y, Autoplay, Pagination } from 'swiper/modules'
@@ -8,17 +9,46 @@ import slide2 from '../../assets/home/intro/slider2.jpg'
 import styles from './IntroSlider.module.scss'
 
 const IntroSlider: React.FC = () => {
+	const [visibleText, setVisibleText] = useState(true)
+
+	const handleSlideChange = () => {
+		setVisibleText(false)
+		setTimeout(() => setVisibleText(true), 2000)
+	}
 	return (
 		<div className={styles.root}>
 			<div className={styles.content}>
-				<div className={styles.text__wrapper}>
-					<p className={styles.text__wrapper_1}>This is luxury hotel</p>
-					<p className={styles.text__wrapper_2}>Superior hotel in world</p>
-					<div className={styles.line__wrapper}>
+				<div
+					className={`${styles.text__wrapper} ${
+						!visibleText ? styles.hidden : ''
+					}`}
+				>
+					<p
+						className={`${styles.text__wrapper_1} animate__animated animate__fadeInLeft`}
+					>
+						This is luxury hotel
+					</p>
+					<p
+						className={`${styles.text__wrapper_2} animate__animated animate__fadeInDown animate__delay-1s`}
+					>
+						Superior hotel in world
+					</p>
+					<div
+						className={`${styles.line__wrapper} animate__animated animate__fadeIn animate__delay-1s`}
+					>
 						<div className={styles.line}></div>
 					</div>
-					<p className={styles.text__wrapper_3}>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.</p>
-					<button className={styles.rooms}>View rooms</button>
+					<p
+						className={`${styles.text__wrapper_3} animate__animated animate__fadeInUp animate__delay-2s`}
+					>
+						A wonderful serenity has taken possession of my entire soul, like
+						these sweet mornings of spring which I enjoy with my whole heart.
+					</p>
+					<button
+						className={`${styles.rooms} animate__animated animate__fadeIn animate__delay-3s`}
+					>
+						View rooms
+					</button>
 				</div>
 				<Swiper
 					modules={[Pagination, A11y, Autoplay]}
@@ -27,6 +57,10 @@ const IntroSlider: React.FC = () => {
 					slidesPerView={1}
 					allowTouchMove={false}
 					speed={1800}
+					autoplay={{ delay: 5000, disableOnInteraction: false }}
+					onSlideChange={handleSlideChange}
+					onTouchStart={(swiper:any) => swiper.autoplay.stop()}
+					onTouchEnd={(swiper:any) => swiper.autoplay.start()}
 				>
 					<SwiperSlide>
 						<img src={slide1} alt='slide 1' />

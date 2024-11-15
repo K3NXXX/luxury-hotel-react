@@ -23,6 +23,7 @@
 				text-transform: uppercase;
 				letter-spacing: 7px;
 				margin-bottom: 20px;
+
 			}
 			.text__wrapper_2 {
 				font-size: 70px;
@@ -63,6 +64,9 @@
 					background-color: #000000;
 				}
 			}
+		}
+		.hidden {
+			display: none;
 		}
 	}
 	:global {
@@ -106,3 +110,5 @@
 		}
 	}
 }
+
+

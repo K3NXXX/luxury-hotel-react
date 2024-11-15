@@ -1,8 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import logo from '../../assets/header/logo.png'
-import styles from './Header.module.scss'
 import { PAGES } from '../../constants/url.constants'
+import { headerMenu } from '../../lists/header.menu.list'
+import styles from './Header.module.scss'
 
 const Header: React.FC = () => {
 	return (
@@ -13,7 +14,18 @@ const Header: React.FC = () => {
 						<img src={logo} alt='logo' />
 					</Link>
 				</div>
-				<div className={styles.right}></div>
+				<div className={styles.right}>
+					<ul>
+						{headerMenu.map(item => (
+							<Link to={item.url}>
+								<li key={item.id}>{item.label}</li>
+							</Link>
+						))}
+					</ul>
+					<div>
+						<button>Check now</button>
+					</div>
+				</div>
 			</div>
 		</header>
 	)
