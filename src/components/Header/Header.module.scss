@@ -1,13 +1,15 @@
 .root {
-	max-width: 1140px;
+	max-width: 1165px;
 	margin: 0 auto;
 	position: relative;
 	z-index: 2;
-	padding: 40px 0;
+	padding: 40px 25px;
 	.content {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+	
+		
 		.left {
 			cursor: pointer;
 		}
@@ -18,6 +20,9 @@
 			ul {
 				display: flex;
 				gap: 0 40px;
+				@media (max-width:930px) {
+					display: none;
+				}
 				li {
 					font-size: 14px;
 					font-family: 'Josefin Sans', sans-serif;
@@ -38,6 +43,9 @@
 				text-transform: uppercase;
 				&:hover {
 					background-color: #000000;
+				}
+				@media (max-width:930px) {
+					display: none;
 				}
 			}
 		}

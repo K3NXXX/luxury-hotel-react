@@ -1,5 +1,5 @@
 import 'animate.css'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import { A11y, Autoplay, Pagination } from 'swiper/modules'
@@ -8,6 +8,7 @@ import slide1 from '../../assets/home/intro/slider1.jpg'
 import slide2 from '../../assets/home/intro/slider2.jpg'
 import styles from './IntroSlider.module.scss'
 
+
 const IntroSlider: React.FC = () => {
 	const [visibleText, setVisibleText] = useState(true)
 
@@ -15,9 +16,19 @@ const IntroSlider: React.FC = () => {
 		setVisibleText(false)
 		setTimeout(() => setVisibleText(true), 2000)
 	}
+
+	const showSettings = (event: any) => {
+		event.preventDefault();
+	}
+
+	useEffect(() => {
+		setVisibleText(true) 
+	}, [])
+
 	return (
 		<div className={styles.root}>
 			<div className={styles.content}>
+			
 				<div
 					className={`${styles.text__wrapper} ${
 						!visibleText ? styles.hidden : ''
@@ -57,7 +68,7 @@ const IntroSlider: React.FC = () => {
 					slidesPerView={1}
 					allowTouchMove={false}
 					speed={1800}
-					autoplay={{ delay: 5000, disableOnInteraction: false }}
+					autoplay={{ delay: 10000, disableOnInteraction: false }}
 					onSlideChange={handleSlideChange}
 					onTouchStart={(swiper:any) => swiper.autoplay.stop()}
 					onTouchEnd={(swiper:any) => swiper.autoplay.start()}
