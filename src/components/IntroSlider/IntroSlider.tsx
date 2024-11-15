@@ -57,7 +57,7 @@ const IntroSlider: React.FC = () => {
 					slidesPerView={1}
 					allowTouchMove={false}
 					speed={1800}
-					autoplay={{ delay: 5000, disableOnInteraction: false }}
+					autoplay={{ delay: 10000, disableOnInteraction: false }}
 					onSlideChange={handleSlideChange}
 					onTouchStart={(swiper:any) => swiper.autoplay.stop()}
 					onTouchEnd={(swiper:any) => swiper.autoplay.start()}
