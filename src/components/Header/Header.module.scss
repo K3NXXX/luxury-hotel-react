@@ -1,0 +1,11 @@
+.root {
+	max-width: 1140px;
+	margin: 0 auto;
+	position: relative;
+	z-index: 2;
+	.content {
+		.left {
+			cursor: pointer;
+		}
+	}
+}

@@ -1,0 +1,108 @@
+.root {
+	.content {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		.text__wrapper {
+			text-align: center;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			position: absolute;
+			top: 36%;
+			left: 50%;
+			z-index: 10;
+			transform: translateX(-50%);
+			.text__wrapper_1 {
+				font-size: 20px;
+				font-family: 'Cormorant Garamond', serif;
+				font-weight: 300;
+				color: #dba765;
+				text-transform: uppercase;
+				letter-spacing: 7px;
+				margin-bottom: 20px;
+			}
+			.text__wrapper_2 {
+				font-size: 70px;
+				font-family: 'Cormorant Garamond', serif;
+				font-weight: 700;
+				color: #ffffff;
+				text-transform: uppercase;
+				margin-bottom: 30px;
+			}
+			.text__wrapper_3 {
+				color: #ffffff;
+				font-size: 22px;
+				font-weight: 300;
+				max-width: 727px;
+				text-align: center;
+				margin-bottom: 50px;
+				line-height: 120%;
+			}
+			.line__wrapper {
+				display: flex;
+				justify-content: center;
+				margin-bottom: 30px;
+				.line {
+					width: 300px;
+					height: 1px;
+					background-color: #dba765;
+				}
+			}
+			.rooms {
+				color: #ffffff;
+				background-color: #dba765;
+				width: 204px;
+				height: 58px;
+				font-size: 20px;
+				font-weight: 300;
+				transition: 0.3s ease;
+				&:hover {
+					background-color: #000000;
+				}
+			}
+		}
+	}
+	:global {
+		.swiper {
+			height: 100vh;
+		}
+		.swiper-pagination {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 5px 0;
+			height: 60px;
+			padding: 10px 5px;
+			background: -moz-linear-gradient(top, #777777 0%, #000000 100%);
+			background: -webkit-linear-gradient(top, #777777 0%, #000000 100%);
+			background: -o-linear-gradient(top, #777777 0%, #000000 100%);
+			background: -ms-linear-gradient(top, #777777 0%, #000000 100%);
+			background: linear-gradient(to bottom, #777777 0%, #000000 100%);
+			border-radius: 10px;
+		}
+		.swiper-pagination-bullet-active {
+			background: rgb(255, 255, 255) !important;
+			width: 18px;
+			height: 18px;
+			border: 3px solid #dba765;
+		}
+		.swiper-pagination-bullet {
+			background: rgb(0, 0, 0);
+			width: 18px;
+			height: 18px;
+			border: 3px solid #dba765;
+		}
+		.swiper-pagination-fraction,
+		.swiper-pagination-custom,
+		.swiper-horizontal > .swiper-pagination-bullets,
+		.swiper-pagination-bullets.swiper-pagination-horizontal {
+			top: 50vh;
+			right: 15px;
+			left: unset;
+			width: auto;
+		}
+	}
+}
