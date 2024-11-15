@@ -15,6 +15,11 @@ const IntroSlider: React.FC = () => {
 		setVisibleText(false)
 		setTimeout(() => setVisibleText(true), 2000)
 	}
+
+		useEffect(() => {
+		setVisibleText(true) 
+	}, [])
+	
 	return (
 		<div className={styles.root}>
 			<div className={styles.content}>
