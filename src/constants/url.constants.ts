@@ -1,6 +1,6 @@
 class Pages {
 	private base = "http://localhost:3000"
-	HOME = `home`
+	HOME = ``
 	ROOMS = `rooms`
 	TABLES = "tables"
 	CALLROOMS = "call-rooms"
