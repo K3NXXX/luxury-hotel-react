@@ -3,6 +3,7 @@ import styles from "./Home.module.scss"
 import IntroSlider from '../../components/IntroSlider/IntroSlider'
 import Statistics from '../../components/Statistics/Statistics'
 import Rooms from '../../components/Rooms/Rooms'
+import Facilities from '../../components/Facilities/Facilities'
 
 const Home: React.FC = () => {
 	return (
@@ -10,6 +11,7 @@ const Home: React.FC = () => {
 			<IntroSlider/>
 			<Statistics/>
 			<Rooms/>
+			<Facilities/>
 		</div>
 	);
 };

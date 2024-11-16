@@ -4,6 +4,9 @@
 		max-width: 1500px;
 		padding: 200px 25px 100px 25px;
 		margin: 0 auto;
+		@media (max-width: 560px) {
+			padding: 70px 25px 100px 25px;
+		}
 		.content {
 			h2 {
 				color: #dba765;
@@ -26,14 +29,14 @@
 				display: grid;
 				grid-template-columns: repeat(4, 1fr);
 				gap: 0 20px;
-				@media (max-width:1300px) {
+				@media (max-width: 1300px) {
 					grid-template-columns: repeat(3, 1fr);
 					gap: 20px;
 				}
-				@media (max-width:1000px) {
+				@media (max-width: 1000px) {
 					grid-template-columns: repeat(2, 1fr);
 				}
-				@media (max-width:700px) {
+				@media (max-width: 700px) {
 					grid-template-columns: repeat(1, 1fr);
 				}
 
