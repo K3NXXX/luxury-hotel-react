@@ -1,15 +1,16 @@
 .root {
-	max-width: 1165px;
+	max-width: 1190px;
 	margin: 0 auto;
 	position: relative;
 	z-index: 2;
 	padding: 40px 25px;
+	position: absolute;
+	left: 0;
+	right: 0;
 	.content {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-	
-		
 		.left {
 			cursor: pointer;
 		}

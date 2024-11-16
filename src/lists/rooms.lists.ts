@@ -1,0 +1,55 @@
+import {
+	default as customRoom,
+	default as standartRoom,
+} from '../assets/home/rooms/room1.jpg'
+import deluxeRoom from '../assets/home/rooms/room2.jpg'
+import presidentRoom from '../assets/home/rooms/room3.jpg'
+
+interface IRoomList {
+	id: number
+	label: string
+	price: number
+	url: string
+	image: string
+	description: string,
+	descriptionBack: string
+}
+export const roomList: IRoomList[] = [
+	{
+		id: 1,
+		label: 'Standart Room',
+		price: 100,
+		url: '#',
+		image: standartRoom,
+		description: 'Standart facilities',
+			descriptionBack: "A Standard Room offers a comfortable and cozy space, featuring essential amenities for a relaxing stay. It includes a queen-size bed, a private bathroom, and modern furnishings, making it ideal for both business and leisure travelers."
+	},
+	{
+		id: 2,
+		label: 'Deluxe Room',
+		price: 150,
+		url: '#',
+		image: deluxeRoom,
+		description: 'Better facilities',
+		descriptionBack: "A Luxury Room provides an elevated experience with premium amenities and sophisticated design. It features a king-size bed, spacious seating area, elegant bathroom with high-end fixtures, and stunning views, ensuring a truly indulgent stay."
+	},
+	{
+		id: 3,
+		label: 'President Room',
+		price: 300,
+		url: '#',
+		image: presidentRoom,
+		description: 'Luxury facilities',
+		descriptionBack: "The Presidential Room offers the ultimate in luxury and exclusivity. It boasts expansive space, a king-size bed, a private lounge area, a lavish bathroom with a Jacuzzi, and premium furnishings. With exceptional views and personalized services, it provides an unparalleled experience for the most discerning guests."
+	
+	},
+	{
+		id: 4,
+		label: 'Custom Room',
+		price: 250,
+		url: '#',
+		image: customRoom,
+		description: 'Create room by your desire',
+		descriptionBack: "The Custom Room is designed to cater to your unique preferences, offering flexible layouts and personalized amenities. Whether you need additional space, specific furnishings, or tailored services, this room can be adapted to create your ideal stay, ensuring comfort and convenience."
+	},
+]

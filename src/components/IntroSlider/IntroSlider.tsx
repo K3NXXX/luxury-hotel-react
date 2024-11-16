@@ -16,9 +16,6 @@ const IntroSlider: React.FC = () => {
     setTimeout(() => setVisibleText(true), 2000) 
   }
 
-  const showSettings = (event: any) => {
-    event.preventDefault()
-  }
 
   useEffect(() => {
     setVisibleText(true)

@@ -1,0 +1,130 @@
+.root {
+	max-width: 1300px;
+	padding: 200px 25px 100px 25px;
+	margin: 0 auto;
+	@media (max-width: 1230px) {
+		padding: 100px 25px 100px 25px;
+	}
+	@media (max-width: 520px) {
+		padding: 50px 25px 100px 25px;
+	}
+	.content {
+		display: flex;
+		justify-content: space-between;
+		gap: 0 100px;
+		@media (max-width: 1230px) {
+			flex-direction: column;
+			align-items: center;
+			gap: 50px 0;
+		}
+		.left img {
+			@media (max-width: 650px) {
+				max-width: 500px;
+			}
+			@media (max-width: 520px) {
+				max-width: 400px;
+			}
+			@media (max-width: 440px) {
+				max-width: 330px;
+			}
+		}
+		.right {
+			.text1 {
+				color: #dba765;
+				font-size: 17px;
+				text-transform: uppercase;
+				letter-spacing: 0;
+				margin: 0 0 7px 0;
+				position: relative;
+				display: inline-block;
+				z-index: 1;
+				letter-spacing: 2px;
+				font-family: 'Cormorant Garamond', serif;
+				font-weight: 500;
+				margin-bottom: 8px;
+			}
+			.text2 {
+				font-size: 45px;
+				font-weight: 600;
+				font-family: 'Cormorant Garamond', serif;
+				@media (max-width: 650px) {
+					font-size: 35px;
+				}
+				@media (max-width: 440px) {
+					font-size: 25px;
+				}
+			}
+			.text3 {
+				font-size: 18px;
+				margin: 22px 0 12px;
+				font-weight: 400;
+				line-height: 26px;
+				font-family: 'Josefin Sans', serif;
+			}
+		}
+		.cards {
+			display: flex;
+			flex-direction: column;
+			gap: 20px 0;
+		
+			.item {
+				position: relative;
+				display: flex;
+				gap: 0 20px;
+				border: 1px solid #f1eeeb;
+				padding: 30px 20px 20px;
+				overflow: hidden;
+				z-index: 0;
+				transition: color 0.3s ease-in-out;
+		
+				&::before {
+					content: '';
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 0;
+					height: 100%;
+					background: #dba765;
+					z-index: -1;
+					transition: width 0.5s ease-in-out;
+				}
+		
+				&:hover {
+					color: #fff;
+		
+					&::before {
+						width: 100%;
+					}
+		
+					.icon {
+						color: #fff; 
+						transition: color 0.3s ease-in-out;
+					}
+				}
+		
+				.icon {
+					color: #dba765; 
+					transition: color 0.3s ease-in-out;
+				}
+		
+				.text__wrapper {
+					p {
+						&:first-child {
+							font-size: 21px;
+							font-family: 'Cormorant Garamond', serif;
+							font-weight: 500;
+							margin-bottom: 10px;
+						}
+		
+						&:last-child {
+							font-size: 17px;
+							font-family: 'Josefin Sans', serif;
+							font-weight: 300;
+						}
+					}
+				}
+			}
+		}
+		
+	}
+}
