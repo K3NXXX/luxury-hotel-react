@@ -31,4 +31,9 @@ export const headerMenu: IHeaderMenu[] = [
 		label: "Contact",
 		url:PAGES.CONTACT,
 	},
+	{
+		id: 5,
+		label: "Account",
+		url:PAGES.REGISTER,
+	},
 ]

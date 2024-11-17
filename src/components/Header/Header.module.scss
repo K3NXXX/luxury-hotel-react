@@ -29,7 +29,11 @@
 					font-family: 'Josefin Sans', sans-serif;
 					text-transform: uppercase;
 					letter-spacing: 1px;
+					transition: 0.3s ease;
 					color: #FFFFFF;
+					&:hover {
+						color: #dba765;
+					}
 
 				}
 			}
@@ -45,7 +49,7 @@
 				&:hover {
 					background-color: #000000;
 				}
-				@media (max-width:930px) {
+				@media (max-width:1030px) {
 					display: none;
 				}
 			}
