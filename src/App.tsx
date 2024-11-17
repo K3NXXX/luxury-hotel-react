@@ -2,6 +2,7 @@ import { Navigate, Route, Routes } from 'react-router-dom'
 import Header from './components/Header/Header'
 import { PAGES } from './constants/url.constants'
 import Home from './pages/Home/Home'
+import Footer from './components/Footer/Footer'
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Routes>
         <Route path={PAGES.HOME} element={<Home/>}/>
       </Routes>
+      <Footer/>
     </div>
   );
 }

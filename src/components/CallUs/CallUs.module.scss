@@ -1,0 +1,129 @@
+.root {
+	background: url('../../assets/home/call-us/call-us.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	.wrapper {
+		max-width: 1190px;
+		padding: 100px 25px;
+		margin: 0 auto;
+		.content {
+			display: grid;
+			grid-template-columns: repeat(2, 560px);
+			gap: 0 50px;
+			align-items: center;
+			@media (max-width: 1230px) {
+				grid-template-columns: 560px;
+				justify-content: center;
+			}
+			@media (max-width: 600px) {
+				grid-template-columns: 400px;
+			}
+			@media (max-width: 430px) {
+				grid-template-columns: 320px;
+			}
+			.left {
+				.text1 {
+					color: white;
+					font-family: 'Cormorant Garamond' sans-serif;
+					font-size: 45px;
+					margin-bottom: 20px;
+					@media (max-width: 1230px) {
+						text-align: center;
+					}
+					@media (max-width: 600px) {
+						font-size: 30px;
+					}
+				}
+				.text2 {
+					color: white;
+					margin-bottom: 20px;
+					font-family: 'Josefin Sans', serif;
+					font-size: 17px;
+					@media (max-width: 1230px) {
+						text-align: center;
+					}
+				}
+				.phone {
+					display: flex;
+					align-items: center;
+					gap: 0 10px;
+					@media (max-width: 1230px) {
+						justify-content: center;
+						margin-bottom: 20px;
+					}
+					.phone__left {
+						.icon {
+							@media (max-width: 430px) {
+								width: 40px;
+							}
+						}
+					}
+					.phone__right {
+						p {
+							font-family: 'Josefin Sans', serif;
+							font-size: 21px;
+							color: #dba765;
+							margin-bottom: 7px;
+						}
+						span {
+							font-family: 'Josefin Sans', serif;
+							font-size: 21px;
+							color: white;
+						}
+					}
+				}
+			}
+			.right {
+				.bookingForm {
+					padding: 40px;
+					background-color: white;
+				
+
+					p {
+						font-family: 'Cormorant Garamond', serif;
+						font-size: 16px;
+						text-transform: uppercase;
+						color: #dba765;
+						letter-spacing: 2px;
+						margin-bottom: 15px;
+					}
+					span {
+						color: black;
+						font-family: 'Cormorant Garamond', serif;
+						font-size: 30px;
+						font-weight: 600;
+						@media (max-width: 430px) {
+							font-size: 20px;
+						}
+					}
+					.formContent {
+						margin-top: 30px;
+						display: grid;
+						gap: 20px;
+						grid-template-columns: repeat(2, 1fr);
+						margin-bottom: 30px;
+						@media (max-width: 600px) {
+							grid-template-columns: repeat(1, 1fr);
+						}
+						.input__wrapper {
+							display: flex;
+							flex-direction: column;
+						}
+					}
+					.btn {
+						background: #dba765;
+						padding: 17px 39px;
+						width: 100%;
+						font-size: 20px;
+						transition: 0.3s;
+						color: #fff;
+						&:hover {
+							background-color: #000000;
+						}
+					}
+				}
+			}
+		}
+	}
+}
