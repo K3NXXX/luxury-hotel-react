@@ -1,14 +1,26 @@
 import React from 'react'
+import { useInView } from 'react-intersection-observer'
 import restaurantImage from '../../assets/home/restaurant/1.jpg'
 import styles from './Restaurant.module.scss'
 const Restaurant: React.FC = () => {
+	const { ref, inView } = useInView({
+		triggerOnce: true,
+		threshold: 0.5,
+	})
 	return (
 		<div className={styles.root}>
 			<div className={styles.content}>
-				<div className={styles.left}>
+				<div
+					ref={ref}
+					className={`${
+						inView ? 'animate__animated animate__fadeIn' : ''
+					} ${styles.left}`}
+				>
 					<img src={restaurantImage} alt='restaurant' />
 				</div>
-				<div className={styles.right}>
+				<div ref={ref} className={`${
+						inView ? 'animate__animated animate__fadeInRight' : ''
+					} ${styles.right}`}>
 					<div className={styles.text__wrapper}>
 						<p className={styles.text1}>THE BEST LUXURY HOTEL</p>
 						<p className={styles.text2}>Relaxing Moments at Our Restaurant.</p>

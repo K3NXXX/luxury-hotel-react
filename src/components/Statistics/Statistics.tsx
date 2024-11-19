@@ -1,18 +1,36 @@
 import React from 'react'
 //@ts-ignore
+import 'animate.css'
 import { CiStar } from 'react-icons/ci'
 import { PiHouseThin } from 'react-icons/pi'
+import { useInView } from 'react-intersection-observer'
 import designImage from '../../assets/home/statistics/statistics.png'
 import styles from './Statistics.module.scss'
 
 const Statistics: React.FC = () => {
+	const { ref, inView } = useInView({
+		triggerOnce: true,
+		threshold: 0.5,
+	})
 	return (
 		<div className={styles.root}>
 			<div className={styles.content}>
 				<div className={styles.left}>
-					<img src={designImage} alt='hotel design' />
+					<img
+						ref={ref}
+						src={designImage}
+						alt='hotel design'
+						className={`${inView ? 'animate__animated animate__fadeIn' : ''} ${
+							styles.image
+						}`}
+					/>
 				</div>
-				<div className={styles.right}>
+				<div
+					ref={ref}
+					className={`${inView ? 'animate__animated animate__fadeInDown' : ''} ${
+						styles.right
+					}`}
+				>
 					<p className={styles.text1}>THE BEST LUXURY HOTEL</p>
 					<p className={styles.text2}>
 						Find the right Apartment Hotel & Resort for you
@@ -25,7 +43,7 @@ const Statistics: React.FC = () => {
 					<div className={styles.cards}>
 						<div className={styles.item}>
 							<div className={styles.icon__wrapper}>
-								<CiStar className={styles.icon} size='40'/>
+								<CiStar className={styles.icon} size='40' />
 							</div>
 							<div className={styles.text__wrapper}>
 								<p>5 Star Hotel In World</p>
@@ -37,10 +55,7 @@ const Statistics: React.FC = () => {
 						</div>
 						<div className={styles.item}>
 							<div className={styles.icon__wrapper}>
-								<PiHouseThin
-									className={styles.icon}
-									size='40'
-								/>
+								<PiHouseThin className={styles.icon} size='40' />
 							</div>
 							<div className={styles.text__wrapper}>
 								<p>Best Environment</p>

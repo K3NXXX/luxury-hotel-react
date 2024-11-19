@@ -14,7 +14,7 @@ export const headerMenu: IHeaderMenu[] = [
 	{
 		id: 2,
 		label: "Rooms",
-		url:PAGES.ROOMS,
+		url:PAGES.ALLROOMS,
 	},
 	{
 		id: 3,

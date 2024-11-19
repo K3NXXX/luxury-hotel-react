@@ -6,6 +6,9 @@
 		padding: 70px 25px 0 25px;
 	}
 	.content {
+		.text__wrapper {
+			opacity: 0;
+		}
 		h2 {
 			color: #dba765;
 			font-size: 17px;
@@ -43,6 +46,7 @@
 			}
 		}
 		.list {
+			opacity: 0;
 			display: grid;
 			grid-template-columns: repeat(6, 166px);
 			justify-content: center;

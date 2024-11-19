@@ -17,7 +17,10 @@
 			align-items: center;
 			gap: 50px 0;
 		}
+		
+		
 		.left img {
+			opacity: 0;
 			@media (max-width: 650px) {
 				max-width: 500px;
 			}
@@ -29,6 +32,7 @@
 			}
 		}
 		.right {
+			opacity: 0;
 			.text1 {
 				color: #dba765;
 				font-size: 17px;

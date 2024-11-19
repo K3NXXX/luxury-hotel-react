@@ -4,6 +4,7 @@ import {
 } from '../assets/home/rooms/room1.jpg'
 import deluxeRoom from '../assets/home/rooms/room2.jpg'
 import presidentRoom from '../assets/home/rooms/room3.jpg'
+import { PAGES } from '../constants/url.constants'
 
 interface IRoomList {
 	id: number
@@ -19,7 +20,7 @@ export const roomList: IRoomList[] = [
 		id: 1,
 		label: 'Standart Room',
 		price: 100,
-		url: '#',
+		url: PAGES.STANDARTROOM,
 		image: standartRoom,
 		description: 'Standart facilities',
 			descriptionBack: "A Standard Room offers a comfortable and cozy space, featuring essential amenities for a relaxing stay. It includes a queen-size bed, a private bathroom, and modern furnishings, making it ideal for both business and leisure travelers."

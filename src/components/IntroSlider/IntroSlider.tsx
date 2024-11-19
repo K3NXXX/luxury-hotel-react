@@ -7,6 +7,8 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import slide1 from '../../assets/home/intro/slider1.jpg'
 import slide2 from '../../assets/home/intro/slider2.jpg'
 import styles from './IntroSlider.module.scss'
+import { Link } from 'react-router-dom'
+import { PAGES } from '../../constants/url.constants'
 
 const IntroSlider: React.FC = () => {
   const [visibleText, setVisibleText] = useState(true)
@@ -48,11 +50,14 @@ const IntroSlider: React.FC = () => {
             A wonderful serenity has taken possession of my entire soul, like
             these sweet mornings of spring which I enjoy with my whole heart.
           </p>
+          <Link to={PAGES.ALLROOMS}>
           <button
             className={`${styles.rooms} ${visibleText ? 'animate__animated animate__fadeIn animate__delay-3s' : ''}`}
           >
             View rooms
           </button>
+          </Link>
+       
         </div>
         <Swiper
           modules={[Pagination, A11y, Autoplay]}

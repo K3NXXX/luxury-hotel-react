@@ -25,6 +25,7 @@
 		}
 
 		.left {
+			opacity: 0;
 			img {
 				max-height: 677px;
 				@media (max-width: 644px) {
@@ -41,6 +42,7 @@
 			
 		}
 		.right {
+			opacity: 0;
 			background-color: #f8f5f0;
 			padding: 50px 30px 0px 40px;
 			@media (max-width: 1200px) {

@@ -7,6 +7,7 @@ import Facilities from '../../components/Facilities/Facilities'
 import Restaurant from '../../components/Restaurant/Restaurant'
 import CallRoom from '../../components/CallRoom/CallRoom'
 import CallUs from '../../components/CallUs/CallUs'
+import Services from '../../components/Services/Services'
 
 const Home: React.FC = () => {
 	return (
@@ -17,6 +18,7 @@ const Home: React.FC = () => {
 			<Facilities/>
 			<Restaurant/>
 			<CallRoom/>
+			<Services/>
 			<CallUs/>
 		</div>
 	);

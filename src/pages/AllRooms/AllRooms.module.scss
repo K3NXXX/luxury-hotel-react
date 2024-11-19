@@ -1,14 +1,53 @@
 .root {
-	background-color: #f8f5f0;
-	.wrapper {
+	.bg {
+		background: url('../../assets/home/intro/slider1.jpg');
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+		height: 420px;
+		.wrapper {
+			max-width: 1190px;
+			padding: 0 25px;
+			margin: 0 auto;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-position: center;
+			height: 420px;
+			.text__wrapper {
+				padding-top: 100px;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				.text1 {
+					font-size: 52px;
+					margin-bottom: 20px;
+					font-family: 'Cormorant Garamond', serif;
+					font-style: normal;
+					color: white;
+				}
+				.links {
+					display: flex;
+					gap: 0 10px;
+					align-items: center;
+					color: white;
+				}
+				a,
+				p {
+					color: white;
+					font-size: 13px;
+					font-family: 'Josefin Sans', sans-serif;
+					letter-spacing: 2px;
+				}
+			}
+		}
+	
+	}
+	.content {
 		max-width: 1500px;
 		padding: 200px 25px 100px 25px;
 		margin: 0 auto;
-		@media (max-width: 560px) {
-			padding: 70px 25px 100px 25px;
-		}
-		.content {
-			
+		.content__wrapper {
 			h2 {
 				color: #dba765;
 				font-size: 17px;
@@ -30,6 +69,7 @@
 				display: grid;
 				grid-template-columns: repeat(4, 1fr);
 				gap: 0 20px;
+				margin-bottom: 100px;
 				@media (max-width: 1300px) {
 					grid-template-columns: repeat(3, 1fr);
 					gap: 20px;
