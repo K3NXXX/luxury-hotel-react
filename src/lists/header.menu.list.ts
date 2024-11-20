@@ -1,39 +1,39 @@
-import { PAGES } from '../constants/url.constants'
+import { PAGES } from "../constants/url.constants";
 
 interface IHeaderMenu {
-	id: number
-	label: string
-	url: string
+  id: number;
+  label: string;
+  url: string;
 }
 export const headerMenu: IHeaderMenu[] = [
-	{
-		id: 1,
-		label: "Home",
-		url:PAGES.HOME,
-	},
-	{
-		id: 2,
-		label: "Rooms",
-		url:PAGES.ROOMS,
-	},
-	{
-		id: 3,
-		label: "Tables",
-		url:PAGES.TABLES,
-	},
-	{
-		id: 4,
-		label: "Call rooms",
-		url:PAGES.CALLROOMS,
-	},
-	{
-		id: 5,
-		label: "Contact",
-		url:PAGES.CONTACT,
-	},
-	{
-		id: 5,
-		label: "Account",
-		url:PAGES.REGISTER,
-	},
-]
+  {
+    id: 1,
+    label: "Home",
+    url: PAGES.HOME,
+  },
+  {
+    id: 2,
+    label: "Rooms",
+    url: PAGES.ROOMS,
+  },
+  {
+    id: 3,
+    label: "Tables",
+    url: PAGES.TABLES,
+  },
+  {
+    id: 4,
+    label: "Call rooms",
+    url: PAGES.CALLROOMS,
+  },
+  {
+    id: 5,
+    label: "Contact",
+    url: PAGES.CONTACT,
+  },
+  {
+    id: 5,
+    label: "Account",
+    url: PAGES.SIGNUP,
+  },
+];

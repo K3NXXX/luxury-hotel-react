@@ -1,58 +1,57 @@
-.root {
-	max-width: 1190px;
-	margin: 0 auto;
-	position: relative;
-	z-index: 2;
-	padding: 40px 25px;
-	position: absolute;
-	left: 0;
-	right: 0;
-	.content {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		.left {
-			cursor: pointer;
-		}
-		.right {
-			display: flex;
-			align-items: center;
-			gap: 0 30px;
-			ul {
-				display: flex;
-				gap: 0 40px;
-				@media (max-width:930px) {
-					display: none;
-				}
-				li {
-					font-size: 14px;
-					font-family: 'Josefin Sans', sans-serif;
-					text-transform: uppercase;
-					letter-spacing: 1px;
-					transition: 0.3s ease;
-					color: #FFFFFF;
-					&:hover {
-						color: #dba765;
-					}
+.header {
+  max-width: 1190px;
+  margin: 0 auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  padding: 40px 25px;
 
-				}
-			}
-			button {
-				color: #ffffff;
-				background-color: #dba765;
-				font-size: 16px;
-				font-weight: 300;
-				transition: 0.3s ease;
-				font-family: 'Cormorant Garamond', serif;
-				padding: 14px 32px;
-				text-transform: uppercase;
-				&:hover {
-					background-color: #000000;
-				}
-				@media (max-width:1030px) {
-					display: none;
-				}
-			}
-		}
-	}
+  .content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .left {
+      cursor: pointer;
+    }
+    .right {
+      display: flex;
+      align-items: center;
+      gap: 0 30px;
+      ul {
+        display: flex;
+        gap: 0 40px;
+        @media (max-width: 930px) {
+          display: none;
+        }
+        li {
+          font-size: 14px;
+          font-family: "Josefin Sans", sans-serif;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          transition: 0.3s ease;
+          color: #ffffff;
+          &:hover {
+            color: #dba765;
+          }
+        }
+      }
+      button {
+        color: #ffffff;
+        background-color: #dba765;
+        font-size: 16px;
+        font-weight: 300;
+        transition: 0.3s ease;
+        font-family: "Cormorant Garamond", serif;
+        padding: 14px 32px;
+        text-transform: uppercase;
+        &:hover {
+          background-color: #000000;
+        }
+        @media (max-width: 1030px) {
+          display: none;
+        }
+      }
+    }
+  }
 }
