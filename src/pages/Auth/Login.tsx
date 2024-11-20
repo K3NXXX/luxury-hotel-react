@@ -29,7 +29,7 @@ const Login: React.FC = () => {
       navigate("/");
     },
     onSuccess(data) {
-      toast.success("Log in Successfully");
+      toast.success("Log In Successfully");
       reset();
     },
     onError(error: any) {
