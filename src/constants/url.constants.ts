@@ -1,12 +1,14 @@
 class Pages {
-	HOME = `/`
-	ROOMS = `rooms`
-	TABLES = "tables"
-	CALLROOMS = "call-rooms"
-	CONTACT = "contact"
-	REGISTER = "register"
-	ALLROOMS = "all-rooms"
-	STANDARTROOM = "standart-room"
+  HOME = ``;
+  ROOMS = `rooms`;
+  TABLES = "tables";
+  CALLROOMS = "call-rooms";
+  CONTACT = "contact";
+  SIGNUP = "/auth/signup";
+  SIGNUPCOMPLETE = "/auth/signup/complete";
+  LOGIN = "/auth/login";
+  ALLROOMS = "all-rooms";
+  STANDARTROOM = "standart-room";
 }
 
-export const PAGES = new Pages()
+export const PAGES = new Pages();
