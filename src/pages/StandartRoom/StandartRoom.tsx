@@ -1,39 +1,25 @@
+import React from 'react'
+import ReservationForm from '../../components/ReservationForm/ReservationForm'
+import { Link } from 'react-router-dom'
+import { PAGES } from '../../constants/url.constants'
+import LightGallery from 'lightgallery/react'
+
+import roomImage1 from '../../assets/home/rooms/standart-room/1.jpg'
+import roomImage2 from '../../assets/home/rooms/standart-room/2.jpg'
+import roomImage3 from '../../assets/home/rooms/standart-room/3.jpg'
+import LocationMap from '../../components/LocationMap/LocationMap'
+
+import lgVideo from 'lightgallery/plugins/video'
+import lgZoom from 'lightgallery/plugins/zoom'
+
 import 'animate.css'
 import 'lightgallery/css/lg-thumbnail.css'
 import 'lightgallery/css/lg-zoom.css'
 import 'lightgallery/css/lightgallery.css'
-import lgVideo from 'lightgallery/plugins/video'
-import lgZoom from 'lightgallery/plugins/zoom'
-import LightGallery from 'lightgallery/react'
-import 'mapbox-gl/dist/mapbox-gl.css'
-import React, { useEffect, useState } from 'react'
-import Map, { Marker } from 'react-map-gl'
-import { Link } from 'react-router-dom'
-import { PAGES } from '../../constants/url.constants'
 import styles from './StandartRoom.module.scss'
 
-import { Checkbox, MenuItem, Select, SelectChangeEvent } from '@mui/material'
-import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers'
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
-import dayjs from 'dayjs'
-import marker from '../../assets/global/marker.png'
-import roomImage1 from '../../assets/home/rooms/standart-room/1.jpg'
-import roomImage2 from '../../assets/home/rooms/standart-room/2.jpg'
-import roomImage3 from '../../assets/home/rooms/standart-room/3.jpg'
 
 const StandartRoom: React.FC = () => {
-	const MAPBOX_TOKEN =
-		'pk.eyJ1IjoiazNueCIsImEiOiJjbTNvcmkwanAwMzNxMmlzamFjaGx5aTFsIn0.4RpR8F9COeMLmj8ZbRzTjA'
-	const hotelCoordinates = { latitude: 40.714, longitude: -74.006 }
-	const [capacity, setCapacity] = useState<number>(1)
-
-	const handleChangeCapacity = (event: SelectChangeEvent<number>) => {
-		setCapacity(event.target.value as number)
-	}
-
-	useEffect(() => {
-		window.scrollTo(0, 0)
-	}, [])
 	return (
 		<div className={styles.root}>
 			<div className={styles.bg}>
@@ -50,7 +36,7 @@ const StandartRoom: React.FC = () => {
 			</div>
 			<div className={styles.content}>
 				<div className={styles.content__wrapper}>
-					<div className={styles.left}>
+					<div className={`${styles.left}`}>
 						<h3>Standart Room</h3>
 						<p className={styles.descr}>
 							Our Standard Room is designed to provide a harmonious balance of
@@ -109,71 +95,10 @@ const StandartRoom: React.FC = () => {
 							</a>
 						</LightGallery>
 						<p className={styles.location}>Location</p>
-						<Map
-							initialViewState={{
-								longitude: hotelCoordinates.longitude,
-								latitude: hotelCoordinates.latitude,
-								zoom: 12,
-							}}
-							style={{ width: '100%', height: 400 }}
-							mapStyle='mapbox://styles/mapbox/outdoors-v11'
-							mapboxAccessToken={MAPBOX_TOKEN}
-						>
-							<Marker
-								longitude={hotelCoordinates.longitude}
-								latitude={hotelCoordinates.latitude}
-								anchor='bottom'
-							>
-								<div className={styles.marker}>
-									<img src={marker} alt='marker' />
-								</div>
-							</Marker>
-						</Map>
+						<LocationMap />
 					</div>
-					<div
-						className={`${styles.right}`}
-					>
-						<LocalizationProvider dateAdapter={AdapterDayjs}>
-							<div className={`${styles.reservation} animate__animated animate__fadeIn`}>
-								<form>
-									<p className={styles.reservation__text}>Your Reservation</p>
-									<div className={styles.formContent}>
-										<div className={styles.input__wrapper}>
-											<label>Check in</label>
-											<DatePicker defaultValue={dayjs('2024-04-17')} />
-										</div>
-										<div className={styles.input__wrapper}>
-											<label>Check out</label>
-											<DatePicker defaultValue={dayjs('2024-04-17')} />
-										</div>
-										
-										<div className={styles.input__wrapper}>
-											<label>Beds</label>
-											<Select value={capacity} onChange={handleChangeCapacity}>
-												<MenuItem value='1'>1</MenuItem>
-												<MenuItem value='2'>2</MenuItem>
-											</Select>
-										</div>
-										<div className={styles.input__wrapper}>
-											<label>Extra services</label>
-											<div className={styles.extra}>
-												<Checkbox />
-												<p>Food delivery</p>
-											</div>
-											<div className={styles.extra}>
-												<Checkbox />
-												<p>Romantic package</p>
-											</div>
-											<div className={styles.extra}>
-												<Checkbox />
-												<p>Family resort</p>
-											</div>
-										</div>
-									</div>
-									<button className={styles.btn}>Check Reservation</button>
-								</form>
-							</div>
-						</LocalizationProvider>
+					<div className={` ${styles.right}`}>
+						<ReservationForm/>
 					</div>
 				</div>
 			</div>

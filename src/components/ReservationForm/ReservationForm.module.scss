@@ -1,0 +1,67 @@
+.reservation {
+	background-color: #f8f5f0;
+	padding: 30px 30px 15px 30px;
+	.reservation__text {
+		color: #000000;
+		font-family: 'Cormorant Garamond', serif;
+		font-style: normal;
+		font-size: 28px;
+		font-weight: 500;
+		margin-bottom: 30px;
+	}
+	.formContent {
+		display: grid;
+		gap: 20px;
+
+		margin-bottom: 30px;
+		@media (max-width: 600px) {
+			grid-template-columns: repeat(1, 1fr);
+		}
+		.input__wrapper {
+			display: flex;
+			flex-direction: column;
+			label {
+				margin-bottom: 5px;
+				font-size: 17px;
+				font-weight: 500;
+			}
+			.extra {
+				display: flex;
+				align-items: center;
+				p {
+					font-size: 17px;
+					font-family: 'Josefin Sans', sans-serif;
+					font-weight: 300;
+					line-height: 25px;
+					color: #4d4d4d;
+				}
+			}
+		}
+	}
+	.price__wrapper {
+		display: flex;
+		align-items: center;
+		gap: 0 10px;
+		margin-bottom: 30px;
+		.text {
+			color: #dba765;
+			font-size: 20px;
+		}
+		.total__price {
+			font-size: 20px;
+			font-weight: 300;
+		}
+	}
+
+	.btn {
+		background: #dba765;
+		padding: 17px 39px;
+		width: 100%;
+		font-size: 20px;
+		transition: 0.3s;
+		color: #fff;
+		&:hover {
+			background-color: #000000;
+		}
+	}
+}
