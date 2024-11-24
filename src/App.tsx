@@ -11,11 +11,15 @@ import Login from "./pages/Auth/Login";
 import SignupComplete from "./pages/Auth/SignupComplete";
 import AllRooms from "./pages/AllRooms/AllRooms";
 import StandartRoom from "./pages/StandartRoom/StandartRoom";
+import DeluxeRoom from './pages/DeluxeRoom/DeluxeRoom'
+import PresidentRoom from './pages/PresidentRoom/PresidentRoom'
+import Profile from './pages/Profile/Profile'
 
 function App() {
   const location = useLocation();
   const authPages = [PAGES.SIGNUP, PAGES.SIGNUPCOMPLETE, PAGES.LOGIN];
   const isAuthPage = authPages.includes(location.pathname);
+  const isAuth = localStorage.getItem("jwt")
   return (
     <div className="App">
       {!isAuthPage && <Header />}
@@ -27,6 +31,9 @@ function App() {
           <Route path={PAGES.LOGIN} element={<Login />} />
           <Route path={PAGES.ALLROOMS} element={<AllRooms />} />
           <Route path={PAGES.STANDARTROOM} element={<StandartRoom />} />
+          <Route path={PAGES.DELUXEROOM} element={<DeluxeRoom />} />
+          <Route path={PAGES.PRESIDENTROOM} element={<PresidentRoom />} />
+          <Route path={PAGES.PROFILE} element={<Profile />} />
         </Routes>
       </main>
       {!isAuthPage && <Footer />}

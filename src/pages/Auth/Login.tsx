@@ -51,7 +51,7 @@ const Login: React.FC = () => {
         <div className={style.right}>
           <div className={style.header}>
             <div>
-              <p>Already have an account?</p>
+              <p>Don't have an account?</p>
               <Link to="/auth/signup" className={style.login}>
                 Sign up
               </Link>

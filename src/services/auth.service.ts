@@ -60,6 +60,16 @@ class AuthService {
     }
   }
 
+  async getUserData() {
+    try {
+      const { data } = await axios.get(`/api/auth/check`);
+      return data;
+    } catch (error) {
+      console.error("Error fetching user data:", error);
+      throw error;
+    }
+  }
+
   async logout() {
     try {
       const { data } = await axios.post("/auth/logout");

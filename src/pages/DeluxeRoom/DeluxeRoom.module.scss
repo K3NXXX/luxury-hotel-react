@@ -97,7 +97,7 @@
 			.hotel__rules,
 			.smart__room,
 			.room__images,
-			.location, .comments {
+			.location {
 				color: #000000;
 				font-family: 'Cormorant Garamond', serif;
 				font-style: normal;
@@ -105,10 +105,6 @@
 				font-weight: 500;
 				padding-top: 30px;
 				margin-bottom: 30px;
-				span {
-					font-family: "Josefin Sans", sans-serif;
-					font-weight:300;
-				}
 				@media (max-width: 540px) {
 					margin-bottom: 20px;
 				}

@@ -29,7 +29,7 @@ export const roomList: IRoomList[] = [
 		id: 2,
 		label: 'Deluxe Room',
 		price: 150,
-		url: '#',
+		url: PAGES.DELUXEROOM,
 		image: deluxeRoom,
 		description: 'Better facilities',
 		descriptionBack: "A Luxury Room provides an elevated experience with premium amenities and sophisticated design. It features a king-size bed, spacious seating area, elegant bathroom with high-end fixtures, and stunning views, ensuring a truly indulgent stay."
@@ -38,7 +38,7 @@ export const roomList: IRoomList[] = [
 		id: 3,
 		label: 'President Room',
 		price: 300,
-		url: '#',
+		url: PAGES.PRESIDENTROOM,
 		image: presidentRoom,
 		description: 'Luxury facilities',
 		descriptionBack: "The Presidential Room offers the ultimate in luxury and exclusivity. It boasts expansive space, a king-size bed, a private lounge area, a lavish bathroom with a Jacuzzi, and premium furnishings. With exceptional views and personalized services, it provides an unparalleled experience for the most discerning guests."

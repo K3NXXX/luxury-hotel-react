@@ -97,7 +97,7 @@
 			.hotel__rules,
 			.smart__room,
 			.room__images,
-			.location, .comments {
+			.location {
 				color: #000000;
 				font-family: 'Cormorant Garamond', serif;
 				font-style: normal;
@@ -105,10 +105,6 @@
 				font-weight: 500;
 				padding-top: 30px;
 				margin-bottom: 30px;
-				span {
-					font-family: "Josefin Sans", sans-serif;
-					font-weight:300;
-				}
 				@media (max-width: 540px) {
 					margin-bottom: 20px;
 				}
@@ -179,54 +175,4 @@
 			}
 		}
 	}
-}
-
-.avarage__rating {
-	display: flex;
-	align-items: center	;
-	gap: 0 20px;
-	margin-bottom: 20px;
-	p {
-		font-size: 25px;
-		font-weight: 300;
-	}
-}
-.feedbacks {
-	li {
-		margin-bottom: 40px;
-		.rating {
-			display: flex;
-			align-items: center;
-			gap: 0 20px;
-			margin-bottom: 15px;
-
-			.name {
-				color: #dba765;
-				font-size: 20px;
-			}
-		}
-		.comment {
-			font-size: 20px;
-			font-weight: 300;
-		}
-	}
-}
-
-
-.title {
-	display: flex;
-	align-items: center;
-	gap: 0 15px;
-	.rating__stars {
-		font-size: 26px;
-		margin-bottom: 10px;
-	}
-}
-
-.loading {
-	min-height: 100vh;
-}
-
-.comments {
-	cursor: pointer;
 }

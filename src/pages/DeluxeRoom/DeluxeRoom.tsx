@@ -4,27 +4,28 @@ import { Link } from 'react-router-dom'
 import ReservationForm from '../../components/ReservationForm/ReservationForm'
 import { PAGES } from '../../constants/url.constants'
 
-import roomImage1 from '../../assets/home/rooms/standart-room/1.jpg'
-import roomImage2 from '../../assets/home/rooms/standart-room/2.jpg'
-import roomImage3 from '../../assets/home/rooms/standart-room/3.jpg'
+import roomImage1 from '../../assets/home/rooms/deluxe-room/1.webp'
+import roomImage2 from '../../assets/home/rooms/deluxe-room/2.webp'
+import roomImage3 from '../../assets/home/rooms/deluxe-room/3.webp'
+
 import LocationMap from '../../components/LocationMap/LocationMap'
 
 import lgVideo from 'lightgallery/plugins/video'
 import lgZoom from 'lightgallery/plugins/zoom'
 
-import { Rating } from '@mui/material'
-import { useQuery } from '@tanstack/react-query'
 import 'animate.css'
 import 'lightgallery/css/lg-thumbnail.css'
 import 'lightgallery/css/lg-zoom.css'
 import 'lightgallery/css/lightgallery.css'
+import styles from '../StandartRoom/StandartRoom.module.scss'
 import { roomService } from '../../services/rooms.service'
+import { useQuery } from '@tanstack/react-query'
 import { IBookingFeedbacks } from '../../types/rooms.type'
-import styles from './StandartRoom.module.scss'
+import { Rating } from '@mui/material'
 
-const StandartRoom: React.FC = () => {
+const DeluxeRoom: React.FC = () => {
 	const { data: roomFeedbacks, isLoading } = useQuery<IBookingFeedbacks>({
-		queryKey: ['getFeedbacks', 'standard'], 
+		queryKey: ['getFeedbacks', 'deluxe'], 
 		queryFn: ({ queryKey }) => {
 		  const [, type] = queryKey; 
 		  return roomService.getRoomFeedbacks(type as string);
@@ -36,17 +37,16 @@ const StandartRoom: React.FC = () => {
 	if (isLoading) {
 		return <div className={styles.loading}></div>
 	}
-
 	return (
 		<div className={styles.root}>
 			<div className={styles.bg}>
 				<div className={styles.wrapper}>
 					<div className={styles.text__wrapper}>
-						<p className={styles.text1}>Standart Room</p>
+						<p className={styles.text1}>Deluxe Room</p>
 						<div className={styles.links}>
 							<Link to={PAGES.HOME}>HOME</Link>
 							<span>&gt;</span>
-							<p>STANDART ROOM</p>
+							<p>DELUXRE ROOM</p>
 						</div>
 					</div>
 				</div>
@@ -54,8 +54,8 @@ const StandartRoom: React.FC = () => {
 			<div className={styles.content}>
 				<div className={styles.content__wrapper}>
 					<div className={`${styles.left}`}>
-						<div className={styles.title}>
-							<h3>Standart Room</h3>
+					<div className={styles.title}>
+							<h3>Deluxe Room</h3>
 							<Rating
 								className={styles.rating__stars}
 								name='read-only'
@@ -63,27 +63,30 @@ const StandartRoom: React.FC = () => {
 								readOnly
 							/>
 						</div>
-
 						<p className={styles.descr}>
-							Our Standard Room is designed to provide a harmonious balance of
-							comfort and functionality, making it an ideal choice for travelers
-							seeking a relaxing stay. Each room features a plush bed,
-							contemporary furnishings, and thoughtfully selected amenities to
-							cater to your every need. Whether you are visiting for business or
-							leisure, the room is equipped with high-speed Wi-Fi, a flat-screen
-							TV, a work desk, and climate control to ensure maximum
-							convenience. The soothing decor and attention to detail create a
-							welcoming atmosphere, offering a peaceful retreat after a busy
-							day. Experience the perfect combination of modern style and
-							timeless comfort.
+							Our Deluxe Room elevates your stay with enhanced luxury and
+							sophistication, perfect for guests who desire an upgraded
+							experience. Featuring a spacious layout and premium furnishings,
+							the room is designed to provide unparalleled comfort and elegance.
+							Indulge in a plush king-size bed, a stylish seating area, and an
+							array of upscale amenities, including high-speed Wi-Fi, a
+							flat-screen TV, a fully stocked minibar, and a Nespresso coffee
+							machine. The luxurious bathroom boasts a rain shower and high-end
+							toiletries for a spa-like experience. With its chic decor,
+							enhanced space, and attention to every detail, the Deluxe Room
+							offers a serene and refined retreat, perfect for unwinding in
+							style.
 						</p>
 						<p className={styles.amenities}>Amenities</p>
 						<ul className={styles.amenities__list}>
-							<li>Area 20-25m²</li>
-							<li>Cable TV</li>
-							<li>High Speed WIFI</li>
-							<li>Mini bar</li>
-							<li>Smart room</li>
+							<li>Area 30-35m²</li>
+							<li>King-size bed</li>
+							<li>Flat-screen TV with streaming services</li>
+							<li>High-Speed Wi-Fi</li>
+							<li>Fully stocked minibar</li>
+							<li>Nespresso coffee machine</li>
+							<li>Luxurious bathroom with rain shower</li>
+							<li>Complimentary bathrobe and slippers</li>
 						</ul>
 						<p className={styles.hotel__rules}>Hotel Rules</p>
 						<ul className={styles.rules__list}>
@@ -110,9 +113,10 @@ const StandartRoom: React.FC = () => {
 							elementClassNames={styles.gallery}
 							speed={500}
 						>
-							<img src={roomImage1} alt='Standart room' />
-							<img src={roomImage2} alt='Standart room' />
-							<img src={roomImage3} alt='Standart room' />
+							<img src={roomImage1} alt='Deluxe room' />
+							<img src={roomImage2} alt='Deluxe room' />
+							<img src={roomImage3} alt='Deluxe room' />
+			
 						</LightGallery>
 						<p className={styles.location}>Location</p>
 						<LocationMap />
@@ -138,7 +142,7 @@ const StandartRoom: React.FC = () => {
 						)}
 					</div>
 					<div className={` ${styles.right}`}>
-						<ReservationForm roomType={'standart'} />
+						<ReservationForm roomType={"deluxe"}/>
 					</div>
 				</div>
 			</div>
@@ -146,4 +150,4 @@ const StandartRoom: React.FC = () => {
 	)
 }
 
-export default StandartRoom
+export default DeluxeRoom

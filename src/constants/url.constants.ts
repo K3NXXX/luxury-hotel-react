@@ -7,8 +7,11 @@ class Pages {
   SIGNUP = "/auth/signup";
   SIGNUPCOMPLETE = "/auth/signup/complete";
   LOGIN = "/auth/login";
-  ALLROOMS = "all-rooms";
-  STANDARTROOM = "standart-room";
+  ALLROOMS = "/all-rooms";
+  STANDARTROOM = "/standart-room";
+  DELUXEROOM = "/deluxe-room";
+  PRESIDENTROOM = "/president-room";
+  PROFILE = "/profile";
 }
 
 export const PAGES = new Pages();

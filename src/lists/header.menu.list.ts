@@ -5,6 +5,8 @@ interface IHeaderMenu {
   label: string;
   url: string;
 }
+
+
 export const headerMenu: IHeaderMenu[] = [
   {
     id: 1,
@@ -14,7 +16,7 @@ export const headerMenu: IHeaderMenu[] = [
   {
     id: 2,
     label: "Rooms",
-    url: PAGES.ROOMS,
+    url: PAGES.ALLROOMS,
   },
   {
     id: 3,
@@ -32,8 +34,14 @@ export const headerMenu: IHeaderMenu[] = [
     url: PAGES.CONTACT,
   },
   {
-    id: 5,
+    id: 6,
     label: "Account",
-    url: PAGES.SIGNUP,
+    url: PAGES.LOGIN,
   },
+  {
+    id: 6,
+    label: "Profile",
+    url: PAGES.PROFILE,
+  },
+  
 ];

@@ -10,8 +10,8 @@ const ServicesCard: React.FC<IServicesCardProps> = ({ item }) => {
 		<img src={item.image} alt="service" />
 		<p className={styles.title}>{item.title}</p>
 		<ul className={styles.labels__list}>
-			{item.list.map((label) => (
-				<li className={styles.label__item} key={item.id}>{label.label}</li>
+			{item.list.map((label, index) => (
+				<li className={styles.label__item} key={index}>{label.label}</li>
 			))}
 		</ul>
 	</li>
