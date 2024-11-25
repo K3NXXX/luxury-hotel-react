@@ -138,7 +138,7 @@ const StandartRoom: React.FC = () => {
 						)}
 					</div>
 					<div className={` ${styles.right}`}>
-						<ReservationForm roomType={'standart'} />
+						<ReservationForm roomType={'standard'} />
 					</div>
 				</div>
 			</div>

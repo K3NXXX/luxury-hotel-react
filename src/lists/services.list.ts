@@ -1,5 +1,6 @@
-import image1 from '../assets/home/services/1.jpeg'
-import image2 from '../assets/home/services/1.jpg'
+import image1 from '../assets/home/services/1.jpg'
+import image2 from '../assets/home/services/2.jpg'
+import image3 from '../assets/home/services/3.webp'
 interface ILabelList {
 	label: string
 }
@@ -13,66 +14,51 @@ export interface IServisesList {
 export const servicesList: IServisesList[] = [
 	{
 		id: 1,
-		title: 'Food delivery',
+		title: 'Romantic package',
 		image: image1,
 		list: [
 			{
-				label: 'Convenient In-Room Ordering',
+				label: 'Rose petals, candles, lighting',
 			},
 			{
-				label: 'Fast & Fresh Delivery',
+				label: 'Champagne or wine arrival',
 			},
 			{
-				label: '24/7 Service',
+				label: 'Luxurious bedding, oils',
 			},
 		],
 	},
 	{
 		id: 2,
-		title: 'Extra Take Care',
-		image: image2,
+		title: 'Family resort',
+		image: image3,
 		list: [
 			{
-				label: 'Daily Cleaning Service',
+				label: 'Family dining options',
 			},
 			{
-				label: 'Custom Cleaning Requests',
+				label: 'Family entertainment, activities',
 			},
 			{
-				label: 'Eco-Friendly Products',
+				label: 'Kid-friendly decor, toys',
 			},
 		],
 	},
 	{
 		id: 3,
-		title: 'Food delivery',
-		image: image1,
-		list: [
-			{
-				label: 'Convenient In-Room Ordering',
-			},
-			{
-				label: 'Fast & Fresh Delivery',
-			},
-			{
-				label: '24/7 Service',
-			},
-		],
-	},
-	{
-		id: 4,
-		title: 'Extra Take Care',
+		title: 'Relax package',
 		image: image2,
 		list: [
 			{
-				label: 'Daily Cleaning Service',
+				label: 'Meditation, relaxation sessions',
 			},
 			{
-				label: 'Custom Cleaning Requests',
+				label: 'Calm music, ambiance',
 			},
 			{
-				label: 'Eco-Friendly Products',
+				label: 'Herbal tea, snacks',
 			},
 		],
 	},
+
 ]

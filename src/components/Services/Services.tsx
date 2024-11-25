@@ -44,7 +44,7 @@ const Services: React.FC = () => {
 							spaceBetween={20} 
 							slidesPerView={1} 
 							breakpoints={{
-								1200: {
+								1300: {
 									slidesPerView: 2, 
 									spaceBetween: 40, 
 								},
@@ -52,7 +52,7 @@ const Services: React.FC = () => {
 							className={styles.swiper}
 						>
 							{servicesList.map((item, index) => (
-								<SwiperSlide key={index}>
+								<SwiperSlide  key={index}>
 									<ServicesCard item={item} />
 								</SwiperSlide>
 							))}

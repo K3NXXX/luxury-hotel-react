@@ -21,8 +21,8 @@ const ReservationForm: React.FC<IReservationFormProps> = ({ roomType }) => {
 		totalPrice,
 		capacity,
 		handleChangeCapacity,
-		setFoodDelivery,
-		foodDelivery,
+		setRelaxPackage,
+		relaxPackage,
 		romanticPackage,
 		setRomanticPackage,
 		familyResort,
@@ -46,8 +46,8 @@ const ReservationForm: React.FC<IReservationFormProps> = ({ roomType }) => {
 	}
 
 	const handleFoodDeliveryChange = () => {
-		setFoodDelivery(!foodDelivery)
-		toggleService('Food delivery')
+		setRelaxPackage(!relaxPackage)
+		toggleService('Relax package')
 	}
 
 	const handleRomanticPackageChange = () => {
@@ -145,10 +145,10 @@ const ReservationForm: React.FC<IReservationFormProps> = ({ roomType }) => {
 							</Select>
 						</div>
 						<div className={styles.input__wrapper}>
-							<label>Extra services</label>
+							<label>Relax package</label>
 							<div className={styles.extra}>
 								<Checkbox onChange={handleFoodDeliveryChange} />
-								<p>Food delivery</p>
+								<p>Relax package</p>
 							</div>
 							<div className={styles.extra}>
 								<Checkbox onChange={handleRomanticPackageChange} />

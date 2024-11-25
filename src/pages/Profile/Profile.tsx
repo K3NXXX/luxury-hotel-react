@@ -1,32 +1,46 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
 import dayjs from 'dayjs'
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 import CancelBooking from '../../ui/CancelBooking/CancelBooking'
 import Feedback from '../../ui/Feedback/Feedback'
 
 import { PAGES } from '../../constants/url.constants'
-import { roomService } from '../../services/rooms.service'
 import { authService } from '../../services/auth.service'
+import { roomService } from '../../services/rooms.service'
 import { IBooking } from '../../types/rooms.type'
 
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import { Accordion, AccordionDetails, AccordionSummary } from '@mui/material'
 import { CiBookmarkCheck, CiUser } from 'react-icons/ci'
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import avatar from '../../assets/profile/avatar.png'
+import AddServices from '../../ui/AddServices/AddServices'
+import ExtendBooking from '../../ui/ExtendBooking/ExtendBooking'
 import styles from './Profile.module.scss'
 
 const Profile: React.FC = () => {
 	const [section, setSection] = useState(1)
 	const [openFeedback, setOpenFeedback] = useState(false)
 	const [openCanceling, setOpenCanceling] = useState(false)
+	const [openExtendBooking, setOpenExtendBooking] = useState(false)
+	const [openAddServices, setOpenAddServices] = useState(false)
 	const [selectedRoomType, setSelectedRoomType] = useState<string | null>(null)
 	const [bookingId, setBookingId] = useState<string | null>(null)
 	const [roomId, setRoomId] = useState<string | null>(null)
+	const [roomType, setRoomType] = useState<string | null>(null)
+	const [extraServices, setExtraServices] = useState<string[] | null>(null)
+	const [checkOutData, setCheckOutData] = useState<string | null>(null)
 
 	const handleClose = () => setOpenFeedback(false)
 	const handleCloseCanceling = () => setOpenCanceling(false)
+	const handleCloseAddServices = () => setOpenAddServices(false)
+	const handleCloseExtendBooking = () => {
+		setOpenExtendBooking(false)
+		setCheckOutData(null)
+		setRoomType(null)
+		setExtraServices(null)
+	}
 
 	const { data: userData, isLoading: isUserDataLoading } = useQuery({
 		queryKey: ['userData'],
@@ -163,10 +177,23 @@ const Profile: React.FC = () => {
 														</p>
 													</div>
 													<div className={styles.buttons}>
-														<div>
+														<div
+															onClick={() => {
+																setOpenAddServices(true)
+																setExtraServices(item.extraServices)
+															}}
+														>
 															<button>Add services</button>
 														</div>
-														<div>
+														<div
+															onClick={() => {
+																setOpenExtendBooking(true)
+																setCheckOutData(item.checkOutDate)
+																setRoomType(item.room.type)
+																setExtraServices(item.extraServices)
+																setBookingId(item.id)
+															}}
+														>
 															<button>Extend booking</button>
 														</div>
 														<div
@@ -214,6 +241,19 @@ const Profile: React.FC = () => {
 				open={openCanceling}
 				onClose={handleCloseCanceling}
 				bookingId={bookingId}
+			/>
+			<ExtendBooking
+				open={openExtendBooking}
+				onClose={handleCloseExtendBooking}
+				checkOutData={checkOutData}
+				bookingId={bookingId}
+				roomType={roomType}
+				extraServices={extraServices}
+			/>
+			<AddServices
+				open={openAddServices}
+				onClose={handleCloseAddServices}
+				extraServices={extraServices}
 			/>
 		</div>
 	)

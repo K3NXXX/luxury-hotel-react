@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 export const useIncreasePrice = (roomType: string | undefined) => {
   const [totalPrice, setTotalPrice] = useState(100)
   const [capacity, setCapacity] = useState<number>(1)
-  const [foodDelivery, setFoodDelivery] = useState(false)
+  const [relaxPackage, setRelaxPackage] = useState(false)
   const [romanticPackage, setRomanticPackage] = useState(false)
   const [familyResort, setFamilyResort] = useState(false)
 
@@ -38,9 +38,9 @@ export const useIncreasePrice = (roomType: string | undefined) => {
 
     let price = nights * pricePerNight
 
-    if (foodDelivery) price += 20
-    if (romanticPackage) price += 40
-    if (familyResort) price += 50
+    if (relaxPackage) price += 200
+    if (romanticPackage) price += 180
+    if (familyResort) price += 220
 
     return price
   }
@@ -53,7 +53,7 @@ export const useIncreasePrice = (roomType: string | undefined) => {
     setTotalPrice(calculateTotalPrice())
   }, [
     capacity,
-    foodDelivery,
+    relaxPackage,
     romanticPackage,
     familyResort,
     checkInDate,
@@ -65,8 +65,8 @@ export const useIncreasePrice = (roomType: string | undefined) => {
     totalPrice,
     capacity,
     handleChangeCapacity,
-    setFoodDelivery,
-    foodDelivery,
+    setRelaxPackage,
+    relaxPackage,
     setRomanticPackage,
     romanticPackage,
     setFamilyResort,

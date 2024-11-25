@@ -38,20 +38,26 @@ export interface ICancelBooking {
 }
 
 export interface IUser {
-	name: string;
-  }
+	name: string
+}
 
 export interface IReview {
-	comment: string;
-	id: string;
-	rating: string;
-	roomId: string;
-	roomType: string;
-	userId: string;
-	user: IUser;
-  }
+	comment: string
+	id: string
+	rating: string
+	roomId: string
+	roomType: string
+	userId: string
+	user: IUser
+}
 
-  export interface IBookingFeedbacks {
-	averageRating: number;
-	reviews: IReview[];
-  }
+export interface IBookingFeedbacks {
+	averageRating: number
+	reviews: IReview[]
+}
+
+export interface IExtendBooking {
+	bookingId: string
+	price: string
+	checkOutDate: string
+}

@@ -9,16 +9,16 @@
 	}
 	.content {
 		display: grid;
-		grid-template-columns: 400px 1fr;
+		grid-template-columns: 400px 750px;
 		gap: 0 30px;
-		@media (max-width: 1200px) {
+		@media (max-width: 1300px) {
 			grid-template-columns: 400px;
 		}
 		@media (max-width: 444px) {
 			grid-template-columns: 300px;
 		}
 		align-items: center;
-		@media (max-width: 1200px) {
+		@media (max-width: 1300px) {
 			justify-content: center;
 			align-items: center;
 		}
@@ -91,12 +91,12 @@
 		}
 		.right {
 			width: 100%;
-			max-width: 1200px;
+			max-width: 1300px;
 			overflow: hidden;
 		}
 		.swiper {
 			width: 100%;
-			max-width: 1200px;
+			max-width: 1300px;
 			margin: 0 auto;
 		}
 

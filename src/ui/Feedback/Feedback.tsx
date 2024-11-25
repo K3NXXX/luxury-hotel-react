@@ -12,7 +12,6 @@ import React, { useState } from 'react'
 import { toast } from 'react-toastify'
 import { roomService } from '../../services/rooms.service'
 import { IFeedback } from '../../types/rooms.type'
-import styles from './Feedback.module.scss'
 
 interface IFeedbackProps {
 	open: boolean
@@ -50,7 +49,6 @@ const Feedback: React.FC<IFeedbackProps> = ({ open, onClose, roomType, roomId })
 	}
 	return (
 		<Dialog
-			className={styles.dialog}
 			open={open}
 			PaperProps={{
 				sx: {

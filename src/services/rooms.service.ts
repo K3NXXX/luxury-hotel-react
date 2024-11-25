@@ -1,5 +1,5 @@
 import { toast } from 'react-toastify'
-import { IBooking, ICancelBooking, IFeedback, IMakeReservation } from '../types/rooms.type'
+import type { ICancelBooking, IExtendBooking, IFeedback, IMakeReservation } from '../types/rooms.type'
 import axios from '../utils/axios'
 
 class RoomService {
@@ -39,11 +39,21 @@ class RoomService {
 
 	async cancelBooking(cancelData: ICancelBooking) {
 		try {
-			const { data } = await axios.put('/api/booking/cancel', cancelData )
+			const { data } = await axios.put('/api/room/cancel', cancelData )
 			return data
 		} catch (error: any) {
 			console.log('Error during canceling booking')
 			throw new Error('Error during cancelling booking')
+		}
+	}
+
+	async extendBooking(expandData: IExtendBooking) {
+		try {
+			const { data } = await axios.put('/api/room/extend', expandData )
+			return data
+		} catch (error: any) {
+			console.log('Error during expanding booking')
+			throw new Error('Error during expanding booking')
 		}
 	}
 
