@@ -9,12 +9,17 @@ import {
 	FormControlLabel,
 	Typography,
 } from '@mui/material'
+import { useMutation, useQueryClient } from '@tanstack/react-query'
 import React, { useState } from 'react'
+import { toast } from 'react-toastify'
+import { roomService } from '../../services/rooms.service'
+import { IAddServices } from '../../types/rooms.type'
 
 interface IAddServicesProps {
 	open: boolean
 	onClose: () => void
 	extraServices: string[] | null
+	bookingId: string | null
 }
 
 const predefinedServices = [
@@ -27,9 +32,41 @@ const AddServices: React.FC<IAddServicesProps> = ({
 	open,
 	onClose,
 	extraServices,
+	bookingId,
 }) => {
 	const [selectedServices, setSelectedServices] = useState<string[]>([])
 	const [price, setPrice] = useState(0)
+	const queryClient = useQueryClient()
+
+	const isAllServices = predefinedServices.every(service =>
+		extraServices?.includes(service.name)
+	)
+
+	const { mutate } = useMutation({
+		mutationKey: ['addServices'],
+		mutationFn: (data: IAddServices) => roomService.addServices(data),
+		onSuccess: () => {
+			toast.success('Adding services was completed successfully')
+			queryClient.invalidateQueries({ queryKey: ['userBookings'] })
+		},
+		onError: () => {
+			toast.error('Adding services failed. Try again')
+		},
+	})
+
+	const onSubmit = () => {
+		const addServicesData = {
+			bookingId: bookingId,
+			services: selectedServices,
+			price: price
+		}
+		if (isAllServices) {
+			toast.error('You already have all packages')
+		} else {
+			onClose()
+			mutate(addServicesData)
+		}
+	}
 
 	const handleServiceChange = (service: string, servicePrice: number) => {
 		setSelectedServices(prev => {
@@ -46,7 +83,6 @@ const AddServices: React.FC<IAddServicesProps> = ({
 	const handleClose = () => {
 		onClose()
 		setSelectedServices([])
-
 	}
 
 	return (
@@ -98,6 +134,7 @@ const AddServices: React.FC<IAddServicesProps> = ({
 								))}
 							</Box>
 						)}
+
 						<Box>
 							<Typography
 								variant='h6'
@@ -106,25 +143,36 @@ const AddServices: React.FC<IAddServicesProps> = ({
 								You should add:
 							</Typography>
 							<Box sx={{ display: 'flex', flexDirection: 'column' }}>
-								{predefinedServices.map(service => {
-									if (!extraServices?.includes(service.name)) {
-										return (
-											<FormControlLabel
-												key={service.name}
-												control={
-													<Checkbox
-														checked={selectedServices.includes(service.name)}
-														onChange={() =>
-															handleServiceChange(service.name, service.price)
-														}
-													/>
-												}
-												label={`${service.name} `}
-											/>
-										)
-									}
-									return null
-								})}
+								{predefinedServices.some(
+									service => !extraServices?.includes(service.name)
+								) ? (
+									predefinedServices.map(service => {
+										if (!extraServices?.includes(service.name)) {
+											return (
+												<FormControlLabel
+													key={service.name}
+													control={
+														<Checkbox
+															checked={selectedServices.includes(service.name)}
+															onChange={() =>
+																handleServiceChange(service.name, service.price)
+															}
+														/>
+													}
+													label={`${service.name} `}
+												/>
+											)
+										}
+										return null
+									})
+								) : (
+									<>
+										
+										<Typography sx={{ fontSize: '16px', color: '#555' }}>
+											You have all packages
+										</Typography>
+									</>
+								)}
 							</Box>
 						</Box>
 					</Box>
@@ -144,10 +192,17 @@ const AddServices: React.FC<IAddServicesProps> = ({
 				</Box>
 			</DialogContent>
 			<DialogActions>
-				<Button onClick={handleClose} sx={{ color: '#dba765', fontSize: '16px' }}>
+				<Button
+					onClick={handleClose}
+					sx={{ color: '#dba765', fontSize: '16px' }}
+				>
 					Cancel
 				</Button>
-				<Button sx={{ color: '#dba765', fontSize: '16px' }} type='submit'>
+				<Button
+					onClick={onSubmit}
+					sx={{ color: '#dba765', fontSize: '16px' }}
+					type='submit'
+				>
 					Add services
 				</Button>
 			</DialogActions>

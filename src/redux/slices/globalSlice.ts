@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit"
+import { ICheck } from '../../types/tables.type'
 
 
 type GlobalInitialState = {
@@ -12,6 +13,7 @@ const globalSlice = createSlice({
     name: "global",
     initialState,
     reducers: {
+      
        
     }
 })

@@ -1,5 +1,5 @@
 class Pages {
-  HOME = ``;
+  HOME = `/`;
   ROOMS = `rooms`;
   TABLES = "tables";
   CALLROOMS = "call-rooms";

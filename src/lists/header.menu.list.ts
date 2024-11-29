@@ -38,10 +38,10 @@ export const headerMenu: IHeaderMenu[] = [
     label: "Account",
     url: PAGES.LOGIN,
   },
-  {
-    id: 6,
-    label: "Profile",
-    url: PAGES.PROFILE,
-  },
+  // {
+  //   id: 6,
+  //   label: "Profile",
+  //   url: PAGES.PROFILE,
+  // },
   
 ];

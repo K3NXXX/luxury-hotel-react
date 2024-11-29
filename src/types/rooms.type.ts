@@ -1,13 +1,13 @@
 export interface IMakeReservation {
 	checkInDate: string
 	checkOutDate: string
-	beds: number
+	capacity: number
 	extraServices?: string[]
 }
 
 export interface IRoom {
 	Reviews: null | number
-	beds: string
+	capacity: string
 	description: string
 	number: string
 	price: string
@@ -15,6 +15,7 @@ export interface IRoom {
 }
 
 export interface IBooking {
+	capacity: string
 	checkInDate: string
 	checkOutDate: string
 	extraServices: string[]
@@ -22,6 +23,7 @@ export interface IBooking {
 	id: string
 	price: string
 	roomId: string
+	tableId: string
 	status: string
 	userId: string
 	room: IRoom
@@ -61,3 +63,10 @@ export interface IExtendBooking {
 	price: string
 	checkOutDate: string
 }
+
+export interface IAddServices {
+	bookingId: string | null
+	services: string[]
+
+}
+

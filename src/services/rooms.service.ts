@@ -1,5 +1,5 @@
 import { toast } from 'react-toastify'
-import type { ICancelBooking, IExtendBooking, IFeedback, IMakeReservation } from '../types/rooms.type'
+import type { IAddServices, ICancelBooking, IExtendBooking, IFeedback, IMakeReservation } from '../types/rooms.type'
 import axios from '../utils/axios'
 
 class RoomService {
@@ -8,7 +8,6 @@ class RoomService {
 	async makeReservation(makeResData: IMakeReservation) {
 		try {
 			const { data } = await axios.post('/api/booking/room', makeResData)
-			console.log('res', data)
 			return data
 		} catch (error: any) {
 			console.log(error)
@@ -39,7 +38,7 @@ class RoomService {
 
 	async cancelBooking(cancelData: ICancelBooking) {
 		try {
-			const { data } = await axios.put('/api/room/cancel', cancelData )
+			const { data } = await axios.put('/api/booking/cancel', cancelData )
 			return data
 		} catch (error: any) {
 			console.log('Error during canceling booking')
@@ -49,11 +48,21 @@ class RoomService {
 
 	async extendBooking(expandData: IExtendBooking) {
 		try {
-			const { data } = await axios.put('/api/room/extend', expandData )
+			const { data } = await axios.put('/api/booking/room/extend', expandData )
 			return data
 		} catch (error: any) {
 			console.log('Error during expanding booking')
 			throw new Error('Error during expanding booking')
+		}
+	}
+
+	async addServices(addServicesData: IAddServices) {
+		try {
+			const { data } = await axios.put('/api/booking/room/services', addServicesData )
+			return data
+		} catch (error: any) {
+			console.log('Error during adding services')
+			throw new Error('Error during adding services')
 		}
 	}
 

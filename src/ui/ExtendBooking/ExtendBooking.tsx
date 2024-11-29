@@ -39,7 +39,7 @@ const ExtendBooking: React.FC<IExtendBookingProps> = ({
 		mutationKey: ['extendBooking'],
 		mutationFn: (data: IExtendBooking) => roomService.extendBooking(data),
 		onSuccess: () => {
-			toast.success("Booking was extended successufuly")
+			toast.success("Booking was extended successfully")
 			queryClient.invalidateQueries({queryKey: ['userBookings']})
 		},
 		onError: () => {

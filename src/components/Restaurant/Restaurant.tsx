@@ -2,6 +2,8 @@ import React from 'react'
 import { useInView } from 'react-intersection-observer'
 import restaurantImage from '../../assets/home/restaurant/1.jpg'
 import styles from './Restaurant.module.scss'
+import {Link} from "react-router-dom"
+import { PAGES } from '../../constants/url.constants'
 const Restaurant: React.FC = () => {
 	const { ref, inView } = useInView({
 		triggerOnce: true,
@@ -38,7 +40,10 @@ const Restaurant: React.FC = () => {
 							<li>Dynamic Atmosphere</li>
 							<li>Smart Kitchen Technology</li>
 						</ul>
+						<Link to={PAGES.TABLES}>
 						<button className={styles.btn}>Book now</button>
+						
+						</Link>
 					</div>
 				</div>
 			</div>

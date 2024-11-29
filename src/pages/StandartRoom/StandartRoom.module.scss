@@ -1,5 +1,17 @@
 .root {
-	.bg {
+	.bgRestaurant {
+		background: url('../../assets/home/restaurant/bg.jpg') !important;
+	}
+
+	.bgCallRoom {
+		background: url('../../assets/home/call-rooms/bg.jpg') !important;
+		background-size: cover !important;
+		background-position: bottom !important;
+	}
+
+	.bg,
+	.bgCallRoom,
+	.bgRestaurant {
 		background: url('../../assets/home/intro/slider1.jpg');
 		background-repeat: no-repeat;
 		background-size: cover;
@@ -73,7 +85,7 @@
 				grid-template-columns: 320px;
 			}
 			gap: 0 50px;
-			
+
 			h3 {
 				font-size: 45px;
 				font-weight: 600;
@@ -97,7 +109,8 @@
 			.hotel__rules,
 			.smart__room,
 			.room__images,
-			.location, .comments {
+			.location,
+			.comments {
 				color: #000000;
 				font-family: 'Cormorant Garamond', serif;
 				font-style: normal;
@@ -106,8 +119,8 @@
 				padding-top: 30px;
 				margin-bottom: 30px;
 				span {
-					font-family: "Josefin Sans", sans-serif;
-					font-weight:300;
+					font-family: 'Josefin Sans', sans-serif;
+					font-weight: 300;
 				}
 				@media (max-width: 540px) {
 					margin-bottom: 20px;
@@ -183,7 +196,7 @@
 
 .avarage__rating {
 	display: flex;
-	align-items: center	;
+	align-items: center;
 	gap: 0 20px;
 	margin-bottom: 20px;
 	p {
@@ -212,7 +225,6 @@
 	}
 }
 
-
 .title {
 	display: flex;
 	align-items: center;
@@ -229,4 +241,15 @@
 
 .comments {
 	cursor: pointer;
+}
+
+.restaurantImage {
+	max-width: 250px;
+	@media (max-width: 800px) {
+		max-width: 150px;
+	}
+		@media (max-width: 540px) {
+		max-width: 100px;
+		max-height: 70px;
+	}
 }

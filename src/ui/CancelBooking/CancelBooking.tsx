@@ -29,7 +29,7 @@ const CancelBooking: React.FC<ICancelBookingProps> = ({
 		mutationKey: ['cancelBooking'],
 		mutationFn: (data: ICancelBooking) => roomService.cancelBooking(data),
 		onSuccess: () => {
-			toast.success('You have canceled booking successfuly')
+			toast.success('You have canceled booking successfully')
 			queryClient.invalidateQueries({ queryKey: ['userBookings'] })
 		},
 		onError: () => {

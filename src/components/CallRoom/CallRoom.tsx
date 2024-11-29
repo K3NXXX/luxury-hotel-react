@@ -1,7 +1,9 @@
 import React from 'react'
 import { useInView } from 'react-intersection-observer'
+import { Link } from 'react-router-dom'
 import callRoomImage from '../../assets/home/call-rooms/1.jpeg'
 import styles from './CallRoom.module.scss'
+import { PAGES } from '../../constants/url.constants'
 
 const CallRoom: React.FC = () => {
 	const { ref, inView } = useInView({
@@ -13,9 +15,9 @@ const CallRoom: React.FC = () => {
 			<div className={styles.content}>
 				<div
 					ref={ref}
-					className={`${inView ? 'animate__animated animate__fadeInLeft' : ''} ${
-						styles.right
-					}`}
+					className={`${
+						inView ? 'animate__animated animate__fadeInLeft' : ''
+					} ${styles.right}`}
 				>
 					<div className={styles.text__wrapper}>
 						<p className={styles.text1}>THE BEST LUXURY HOTEL</p>
@@ -34,12 +36,17 @@ const CallRoom: React.FC = () => {
 							<li>Modular Furniture</li>
 							<li>Real-Time Language Translation</li>
 						</ul>
-						<button className={styles.btn}>Book now</button>
+						<Link to={PAGES.CALLROOMS}>
+							<button className={styles.btn}>Book now</button>
+						</Link>
 					</div>
 				</div>
-				<div ref={ref}  className={`${inView ? 'animate__animated animate__fadeIn' : ''} ${
+				<div
+					ref={ref}
+					className={`${inView ? 'animate__animated animate__fadeIn' : ''} ${
 						styles.left
-					}`}>
+					}`}
+				>
 					<img src={callRoomImage} alt='restaurant' />
 				</div>
 			</div>

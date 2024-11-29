@@ -44,9 +44,6 @@ class AuthService {
       `${this.BASE_URL}/api/auth/login`,
       formData,
     );
-    if (data.token) {
-      window.localStorage.setItem("jwt", data.token);
-    }
     return data;
   }
 
@@ -72,10 +69,11 @@ class AuthService {
 
   async logout() {
     try {
-      const { data } = await axios.post("/auth/logout");
+      const { data } = await axios.delete("api/auth/logout");
       return data;
     } catch (error) {
       console.log(error);
+      throw new Error("Loging out failed")
     }
   }
 }

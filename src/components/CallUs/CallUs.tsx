@@ -74,7 +74,7 @@ const CallUs: React.FC = () => {
 										</Select>
 									</div>
 								</div>
-								<button className={styles.btn}>Check now</button>
+								<button className={styles.btn}>Check available rooms</button>
 							</form>
 						</div>
 					</div>
