@@ -44,13 +44,4 @@ export const roomList: IRoomList[] = [
 		descriptionBack: "The Presidential Room offers the ultimate in luxury and exclusivity. It boasts expansive space, a king-size bed, a private lounge area, a lavish bathroom with a Jacuzzi, and premium furnishings. With exceptional views and personalized services, it provides an unparalleled experience for the most discerning guests."
 	
 	},
-	{
-		id: 4,
-		label: 'Custom Room',
-		price: 250,
-		url: '#',
-		image: customRoom,
-		description: 'Create room by your desire',
-		descriptionBack: "The Custom Room is designed to cater to your unique preferences, offering flexible layouts and personalized amenities. Whether you need additional space, specific furnishings, or tailored services, this room can be adapted to create your ideal stay, ensuring comfort and convenience."
-	},
 ]

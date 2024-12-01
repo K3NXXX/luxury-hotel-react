@@ -21,7 +21,7 @@ import styles from '../StandartRoom/StandartRoom.module.scss'
 import { useQuery } from '@tanstack/react-query'
 import { IBookingFeedbacks } from '../../types/rooms.type'
 import { roomService } from '../../services/rooms.service'
-import { Rating } from '@mui/material'
+import { CircularProgress, Rating } from '@mui/material'
 
 const PresidentRoom: React.FC = () => {
 	const { data: roomFeedbacks, isLoading } = useQuery<IBookingFeedbacks>({
@@ -35,8 +35,13 @@ const PresidentRoom: React.FC = () => {
 	const [showComments, setShowComments] = useState(true)
 
 	if (isLoading) {
-		return <div className={styles.loading}></div>
+		return (
+			<div className={styles.loading}>
+				<CircularProgress style={{ color: '#dba765' }} />
+			</div>
+		)
 	}
+
 	return (
 		<div className={styles.root}>
 			<div className={styles.bg}>

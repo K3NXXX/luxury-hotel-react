@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { PAGES } from '../../constants/url.constants'
 import { roomList } from '../../lists/rooms.lists'
@@ -7,6 +7,7 @@ import Services from '../../components/Services/Services'
 import CallUs from '../../components/CallUs/CallUs'
 
 const AllRooms: React.FC = () => {
+
 	return (
 		<div className={styles.root}>
 			<div className={styles.bg}>

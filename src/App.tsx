@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Route, Routes, useLocation } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
@@ -21,6 +22,12 @@ function App() {
 	const location = useLocation()
 	const authPages = [PAGES.SIGNUP, PAGES.SIGNUPCOMPLETE, PAGES.LOGIN]
 	const isAuthPage = authPages.includes(location.pathname)
+
+	useEffect(() => {
+		window.scrollTo(0,0)
+	}, [location])
+
+
 	return (
 		<div className='App'>
 			{!isAuthPage && <Header />}

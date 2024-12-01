@@ -1,5 +1,5 @@
 import { toast } from 'react-toastify'
-import type { IAddServices, ICancelBooking, IExtendBooking, IFeedback, IMakeReservation } from '../types/rooms.type'
+import type { IAddServices, ICancelBooking, IExtendBooking, IFeedback, IGetFreeRooms, IMakeReservation } from '../types/rooms.type'
 import axios from '../utils/axios'
 
 class RoomService {
@@ -11,7 +11,7 @@ class RoomService {
 			return data
 		} catch (error: any) {
 			console.log(error)
-			toast.error(error.response.data.error)
+			throw new Error(error.response.data.error)
 		}
 	}
 
@@ -29,6 +29,16 @@ class RoomService {
 	async getRoomFeedbacks(type: string) {
 		try {
 			const { data } = await axios.get(`api/room/${type}/reviews`)
+			return data
+		} catch (error: any) {
+			console.log('Error during getting room feedbacks')
+			
+		}
+	}
+
+	async getAllFreeRooms(formData: IGetFreeRooms) {
+		try {
+			const { data } = await axios.post(`api/room/available`, formData)
 			return data
 		} catch (error: any) {
 			console.log('Error during getting room feedbacks')

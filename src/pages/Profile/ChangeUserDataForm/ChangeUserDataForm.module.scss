@@ -1,0 +1,30 @@
+.root {
+	padding-top: 100px;
+	.edit {
+		font-family: 'Josefin Sans', serif;
+		font-style: normal;
+		font-size: 28px;
+		font-weight: 500;
+		margin-bottom: 20px;
+		color: #4d4d4d;
+	}
+	form {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 30px;
+		button {
+			width: 200px;
+			color: #ffffff;
+			background-color: #dba765;
+			font-size: 16px;
+			font-weight: 300;
+			transition: 0.3s ease;
+			padding: 14px 32px;
+			text-transform: uppercase;
+			&:hover {
+			  background-color: #000000;
+			}
+		  }
+	
+	}
+}

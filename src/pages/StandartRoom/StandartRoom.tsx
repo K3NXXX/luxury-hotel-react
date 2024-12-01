@@ -12,7 +12,7 @@ import LocationMap from '../../components/LocationMap/LocationMap'
 import lgVideo from 'lightgallery/plugins/video'
 import lgZoom from 'lightgallery/plugins/zoom'
 
-import { Rating } from '@mui/material'
+import { CircularProgress, Rating } from '@mui/material'
 import { useQuery } from '@tanstack/react-query'
 import 'animate.css'
 import 'lightgallery/css/lg-thumbnail.css'
@@ -24,17 +24,21 @@ import styles from './StandartRoom.module.scss'
 
 const StandartRoom: React.FC = () => {
 	const { data: roomFeedbacks, isLoading } = useQuery<IBookingFeedbacks>({
-		queryKey: ['getFeedbacks', 'standard'], 
+		queryKey: ['getFeedbacks', 'standard'],
 		queryFn: ({ queryKey }) => {
-		  const [, type] = queryKey; 
-		  return roomService.getRoomFeedbacks(type as string);
+			const [, type] = queryKey
+			return roomService.getRoomFeedbacks(type as string)
 		},
-	  });
+	})
 
 	const [showComments, setShowComments] = useState(true)
 
 	if (isLoading) {
-		return <div className={styles.loading}></div>
+		return (
+			<div className={styles.loading}>
+				<CircularProgress style={{ color: '#dba765' }} />
+			</div>
+		)
 	}
 
 	return (

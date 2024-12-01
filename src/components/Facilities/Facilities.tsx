@@ -33,7 +33,7 @@ const Facilities: React.FC = () => {
 					} ${styles.list}`}
 				>
 					{facilitiesList.map(item => (
-						<li className={styles.item}>
+						<li key={item.id} className={styles.item}>
 							<img src={item.image} alt={item.label} />
 							<p>{item.label}</p>
 						</li>

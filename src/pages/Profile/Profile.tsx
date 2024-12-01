@@ -12,16 +12,22 @@ import { roomService } from '../../services/rooms.service'
 import { IBooking } from '../../types/rooms.type'
 
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
-import { Accordion, AccordionDetails, AccordionSummary } from '@mui/material'
+import {
+	Accordion,
+	AccordionDetails,
+	AccordionSummary,
+	CircularProgress,
+} from '@mui/material'
 import { CiBookmarkCheck, CiUser } from 'react-icons/ci'
 import { toast } from 'react-toastify'
-import avatar from '../../assets/profile/avatar.png'
+import avatar from '../../assets/profile/user-avatar.png'
 import { tableService } from '../../services/tables.service'
 import { ICheck, IEndBooking } from '../../types/tables.type'
 import AddServices from '../../ui/AddServices/AddServices'
 import ExtendBooking from '../../ui/ExtendBooking/ExtendBooking'
 import TableCheck from '../../ui/TableCheck/TableCheck'
 import styles from './Profile.module.scss'
+import ChangeUserDataForm from './ChangeUserDataForm/ChangeUserDataForm'
 
 const Profile: React.FC = () => {
 	const [section, setSection] = useState(1)
@@ -80,8 +86,6 @@ const Profile: React.FC = () => {
 			setTableCheck(tableCheck)
 		},
 	})
-	console.log('get', userBookings)
-
 	const getFormattedDate = () => {
 		const options: Intl.DateTimeFormatOptions = {
 			weekday: 'long',
@@ -98,7 +102,11 @@ const Profile: React.FC = () => {
 	}
 
 	if (isUserDataLoading || isBookingsLoading) {
-		return <div className={styles.loading}></div>
+		return (
+			<div className={styles.loading}>
+				<CircularProgress style={{ color: '#dba765' }} />
+			</div>
+		)
 	}
 
 	return (
@@ -135,21 +143,24 @@ const Profile: React.FC = () => {
 						<>
 							<p className={styles.welcome}>Welcome, {userData.user.name}</p>
 							<p className={styles.date}>{getFormattedDate()}</p>
-							<div className={styles.info}>
-								<div className={styles.info__left}>
-									<div className={styles.avatar}>
-										<div className={styles.avatar__left}>
-											<img src={avatar} alt='avatar' />
-										</div>
-										<div className={styles.avatar__right}>
-											<p className={styles.name}>{userData.user.name}</p>
-											<p className={styles.email}>{userData.user.email}</p>
+							<div>
+								<div className={styles.info}>
+									<div className={styles.info__left}>
+										<div className={styles.avatar}>
+											<div className={styles.avatar__left}>
+												<img className={styles.avatar__icon} src={avatar} alt='avatar' />
+											</div>
+											<div className={styles.avatar__right}>
+												<p className={styles.name}>{userData.user.name}</p>
+												<p className={styles.email}>{userData.user.email}</p>
+											</div>
 										</div>
 									</div>
+									<div className={styles.info__right}>
+										<button onClick={() => logout()}>Log out</button>
+									</div>
 								</div>
-								<div className={styles.info__right}>
-									<button onClick={() => logout()}>Log out</button>
-								</div>
+								<ChangeUserDataForm/>
 							</div>
 						</>
 					) : (
@@ -193,66 +204,78 @@ const Profile: React.FC = () => {
 												</AccordionSummary>
 												<AccordionDetails>
 													<div className={styles.accordionBack}>
-														<div className={styles.services}>
-															<p className={styles.services__text}>
-																Extra services:
-															</p>
-															{item.extraServices.length > 0 ? (
-																<ul>
-																	{item.extraServices.map((service, index) => (
-																		<li key={index}>{service}</li>
-																	))}
-																</ul>
-															) : (
-																<p className={styles.none}>none</p>
-															)}
-															<p className={styles.services__text}>
-																Beds: <span>{item.room.capacity}</span>
-															</p>
-														</div>
+														{item.room.type === 'meeting' ? (
+															<div></div>
+														) : (
+															<div className={styles.services}>
+																<p className={styles.services__text}>
+																	Extra services:
+																</p>
+																{item.extraServices.length > 0 ? (
+																	<ul>
+																		{item.extraServices.map(
+																			(service, index) => (
+																				<li key={index}>{service}</li>
+																			)
+																		)}
+																	</ul>
+																) : (
+																	<p className={styles.none}>none</p>
+																)}
+																<p className={styles.services__text}>
+																	Beds: <span>{item.room.capacity}</span>
+																</p>
+															</div>
+														)}
+
 														<div className={styles.buttons}>
-															<div
-																onClick={() => {
-																	setOpenAddServices(true)
-																	setExtraServices(item.extraServices)
-																	setBookingId(item.id)
-																}}
-															>
-																<button>Add services</button>
-															</div>
-															<div
-																onClick={() => {
-																	setOpenExtendBooking(true)
-																	setCheckOutData(item.checkOutDate)
-																	setRoomType(item.room.type)
-																	setExtraServices(item.extraServices)
-																	setBookingId(item.id)
-																}}
-															>
-																<button>Extend booking</button>
-															</div>
-															<div
-																onClick={() => {
-																	setOpenFeedback(true)
-																	setRoomId(item.roomId)
-																	setSelectedRoomType(item.room.type)
-																}}
-															>
-																<button>Leave feedback</button>
-															</div>
-															{item.status === 'canceled' ||
-															item.status === 'completed' ? (
-																''
-															) : (
+															{item.status === 'active' &&
+																item.room.type !== 'meeting' && (
+																	<div
+																		onClick={() => {
+																			setOpenAddServices(true)
+																			setExtraServices(item.extraServices)
+																			setBookingId(item.id)
+																		}}
+																	>
+																		<button>Add services</button>
+																	</div>
+																)}
+															{item.status === 'active' && (
 																<div
 																	onClick={() => {
-																		setOpenCanceling(true)
+																		setOpenExtendBooking(true)
+																		setCheckOutData(item.checkOutDate)
+																		setRoomType(item.room.type)
+																		setExtraServices(item.extraServices)
 																		setBookingId(item.id)
 																	}}
 																>
-																	<button>Cancel booking</button>
+																	<button>Extend booking</button>
 																</div>
 															)}
+															{item.room.type !== 'meeting' && (
+																<div
+																	onClick={() => {
+																		setOpenFeedback(true)
+																		setRoomId(item.roomId)
+																		setSelectedRoomType(item.room.type)
+																	}}
+																>
+																	<button>Leave feedback</button>
+																</div>
+															)}
+															{item.status !== 'canceled' &&
+																item.status !== 'completed' && (
+																	<div
+																		onClick={() => {
+																			setOpenCanceling(true)
+																			setBookingId(item.id)
+																		}}
+																	>
+																		<button>Cancel booking</button>
+																	</div>
+																)}
 														</div>
 													</div>
 												</AccordionDetails>
@@ -323,7 +346,6 @@ const Profile: React.FC = () => {
 																		'minute'
 																	) && (
 																		<div
-																		
 																			onClick={() => {
 																				endBooking({ bookingId: item.id })
 																				setOpenTableCheck(true)

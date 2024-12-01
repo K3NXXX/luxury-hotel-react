@@ -74,35 +74,47 @@ const ExtendBooking: React.FC<IExtendBookingProps> = ({
 
 	useEffect(() => {
 		if (checkOutDate && checkOutData && roomType) {
-			const initialDate = dayjs(checkOutData) 
-			const additionalDays = checkOutDate.diff(initialDate, 'day') 
-
-			if (additionalDays > 0) {
-				let basePrice = 0
-
-				switch (roomType.toLowerCase()) {
-					case 'standard':
-						basePrice = 100
-						break
-					case 'deluxe':
-						basePrice = 150
-						break
-					case 'president':
-						basePrice = 300
-						break
-					default:
-						basePrice = 0
-				}
-
-				let totalPrice = additionalDays * basePrice
-				setPrice(totalPrice)
-			} else {
-				setPrice(0)
+		  const initialDate = dayjs(checkOutData)
+		  let totalPrice = 0
+	  
+		  if (roomType.toLowerCase() === 'meeting') {
+			// Calculate price based on hours for "meeting" room type
+			const additionalHours = checkOutDate.diff(initialDate, 'hour')
+	  
+			if (additionalHours > 0) {
+			  totalPrice = additionalHours * 20 // Price per hour for meeting rooms
 			}
+		  } else {
+			// Existing logic for other room types
+			const additionalDays = checkOutDate.diff(initialDate, 'day')
+	  
+			if (additionalDays > 0) {
+			  let basePrice = 0
+	  
+			  switch (roomType.toLowerCase()) {
+				case 'standard':
+				  basePrice = 100
+				  break
+				case 'deluxe':
+				  basePrice = 150
+				  break
+				case 'president':
+				  basePrice = 300
+				  break
+				default:
+				  basePrice = 0
+			  }
+	  
+			  totalPrice = additionalDays * basePrice
+			}
+		  }
+	  
+		  setPrice(totalPrice)
 		} else {
-			setPrice(0) 
+		  setPrice(0)
 		}
-	}, [checkOutDate, checkOutData, roomType, extraServices])
+	  }, [checkOutDate, checkOutData, roomType, extraServices])
+	  
 
 	return (
 		<LocalizationProvider dateAdapter={AdapterDayjs}>

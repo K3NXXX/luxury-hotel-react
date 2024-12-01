@@ -13,30 +13,35 @@ import LocationMap from '../../components/LocationMap/LocationMap'
 import lgVideo from 'lightgallery/plugins/video'
 import lgZoom from 'lightgallery/plugins/zoom'
 
+import { CircularProgress, Rating } from '@mui/material'
+import { useQuery } from '@tanstack/react-query'
 import 'animate.css'
 import 'lightgallery/css/lg-thumbnail.css'
 import 'lightgallery/css/lg-zoom.css'
 import 'lightgallery/css/lightgallery.css'
-import styles from '../StandartRoom/StandartRoom.module.scss'
 import { roomService } from '../../services/rooms.service'
-import { useQuery } from '@tanstack/react-query'
 import { IBookingFeedbacks } from '../../types/rooms.type'
-import { Rating } from '@mui/material'
+import styles from '../StandartRoom/StandartRoom.module.scss'
 
 const DeluxeRoom: React.FC = () => {
 	const { data: roomFeedbacks, isLoading } = useQuery<IBookingFeedbacks>({
-		queryKey: ['getFeedbacks', 'deluxe'], 
+		queryKey: ['getFeedbacks', 'deluxe'],
 		queryFn: ({ queryKey }) => {
-		  const [, type] = queryKey; 
-		  return roomService.getRoomFeedbacks(type as string);
+			const [, type] = queryKey
+			return roomService.getRoomFeedbacks(type as string)
 		},
-	  });
+	})
 
 	const [showComments, setShowComments] = useState(true)
 
 	if (isLoading) {
-		return <div className={styles.loading}></div>
+		return (
+			<div className={styles.loading}>
+				<CircularProgress style={{ color: '#dba765' }} />
+			</div>
+		)
 	}
+	
 	return (
 		<div className={styles.root}>
 			<div className={styles.bg}>
@@ -54,7 +59,7 @@ const DeluxeRoom: React.FC = () => {
 			<div className={styles.content}>
 				<div className={styles.content__wrapper}>
 					<div className={`${styles.left}`}>
-					<div className={styles.title}>
+						<div className={styles.title}>
 							<h3>Deluxe Room</h3>
 							<Rating
 								className={styles.rating__stars}
@@ -116,7 +121,6 @@ const DeluxeRoom: React.FC = () => {
 							<img src={roomImage1} alt='Deluxe room' />
 							<img src={roomImage2} alt='Deluxe room' />
 							<img src={roomImage3} alt='Deluxe room' />
-			
 						</LightGallery>
 						<p className={styles.location}>Location</p>
 						<LocationMap />
@@ -142,7 +146,7 @@ const DeluxeRoom: React.FC = () => {
 						)}
 					</div>
 					<div className={` ${styles.right}`}>
-						<ReservationForm roomType={"deluxe"}/>
+						<ReservationForm roomType={'deluxe'} />
 					</div>
 				</div>
 			</div>

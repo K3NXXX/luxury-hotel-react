@@ -8,8 +8,8 @@ const BurgerMenu: React.FC = () => {
 	return (
 		<Menu>
 			{headerMenu.map(item => (
-				<ul className='header-menu-list'>
-					<Link key={item.id} className='menu-item' to={item.url}>{item.label}</Link>
+				<ul key={item.id} className='header-menu-list'>
+					<Link  className='menu-item' to={item.url}>{item.label}</Link>
 				</ul>
 			))}
 		</Menu>

@@ -1,3 +1,5 @@
+import dayjs from 'dayjs'
+
 export interface IMakeReservation {
 	checkInDate: string
 	checkOutDate: string
@@ -68,5 +70,19 @@ export interface IAddServices {
 	bookingId: string | null
 	services: string[]
 
+}
+
+export interface IGetFreeRooms {
+	type: string
+	capacity: number
+	checkInDate: dayjs.Dayjs | null
+	checkOutDate: dayjs.Dayjs | null
+}
+
+export interface IFreeRooms {
+	capacity: string
+	id: string
+	number: string
+	type: string
 }
 

@@ -17,6 +17,7 @@ import 'lightgallery/css/lg-zoom.css'
 import 'lightgallery/css/lightgallery.css'
 import LocationMap from '../../components/LocationMap/LocationMap'
 import styles from '../StandartRoom/StandartRoom.module.scss'
+import ReservationFormCallRoom from '../../components/ReservationForm/ReservationFormCallRoom'
 
 const CallRoom: React.FC = () => {
 	return (
@@ -84,7 +85,7 @@ const CallRoom: React.FC = () => {
 						<LocationMap />
 					</div>
 					<div className={` ${styles.right}`}>
-						<ReservationForm roomType={'callRoom'} />
+						<ReservationFormCallRoom/>
 					</div>
 				</div>
 			</div>

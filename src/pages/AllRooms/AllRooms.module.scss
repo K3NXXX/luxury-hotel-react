@@ -67,8 +67,9 @@
 			}
 			.room__list {
 				display: grid;
-				grid-template-columns: repeat(4, 1fr);
+				grid-template-columns: repeat(3, 400px);
 				gap: 0 20px;
+				justify-content: center;
 				margin-bottom: 100px;
 				@media (max-width: 1300px) {
 					grid-template-columns: repeat(3, 1fr);

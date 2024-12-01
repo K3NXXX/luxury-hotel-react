@@ -1,7 +1,7 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { roomList } from '../../lists/rooms.lists'
 import styles from './Rooms.module.scss'
-import { Link } from 'react-router-dom'
 
 const Rooms: React.FC = () => {
 	return (
@@ -13,6 +13,7 @@ const Rooms: React.FC = () => {
 					<ul className={styles.room__list}>
 						{roomList.map(item => (
 							<li
+								key={item.id}
 								style={{ backgroundImage: `url(${item.image})` }}
 								className={styles.room__item}
 							>
@@ -30,8 +31,12 @@ const Rooms: React.FC = () => {
 								</div>
 								<div className={styles.back}>
 									<p className={styles.back__room_type}>{item.label}</p>
-									<p className={styles.back__room_descr}>{item.descriptionBack}</p>
-									<Link to={item.url} className={styles.btn}>Book now</Link>
+									<p className={styles.back__room_descr}>
+										{item.descriptionBack}
+									</p>
+									<Link to={item.url} className={styles.btn}>
+										Book now
+									</Link>
 								</div>
 							</li>
 						))}

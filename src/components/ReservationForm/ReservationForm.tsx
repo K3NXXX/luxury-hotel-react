@@ -211,7 +211,7 @@ const ReservationForm: React.FC<IReservationFormProps> = ({ roomType }) => {
 							</div>
 						)}
 
-						{roomType === 'restaurant' || roomType === "callRoom" ? (
+						{roomType === 'restaurant' ? (
 							''
 						) : (
 							<div className={styles.input__wrapper}>
@@ -244,7 +244,7 @@ const ReservationForm: React.FC<IReservationFormProps> = ({ roomType }) => {
 					)}
 
 					<button type='submit' className={styles.btn}>
-						Check Reservation
+						Check Now
 					</button>
 				</form>
 			</div>
