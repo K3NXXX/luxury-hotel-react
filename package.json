@@ -22,6 +22,7 @@
     "dayjs": "^1.11.13",
     "lightgallery": "^2.8.1",
     "mapbox-gl": "^3.8.0",
+    "motion": "^11.12.0",
     "react": "^18.3.1",
     "react-burger-menu": "^3.0.9",
     "react-dom": "^18.3.1",
