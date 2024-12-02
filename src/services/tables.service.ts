@@ -12,7 +12,7 @@ class TablesService {
 			return data
 		} catch (error: any) {
 			console.log(error)
-			throw new Error('No available table with the specified capacity.')
+			throw new Error(error.response.data.error)
 		}
 	}
 

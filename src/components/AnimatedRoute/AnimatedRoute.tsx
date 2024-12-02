@@ -9,7 +9,7 @@ const AnimatedRoute: React.FC<IAnimatedRouteProps> = ({ children }) => (
   initial={{ x: '-100%', scaleX: 0.8, opacity: 0 }}  
   animate={{ x: 0, scaleX: 1, opacity: 1 }}         
   exit={{ x: '100%', scaleX: 1.2, opacity: 0 }}     
-  transition={{ duration: 1, ease: 'easeInOut' }}
+  transition={{ duration: 0.7, ease: 'easeInOut' }}
   style={{ visibility: 'visible', }}
 >
   {children}

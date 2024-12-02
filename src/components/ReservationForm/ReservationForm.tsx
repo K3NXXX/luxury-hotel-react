@@ -79,6 +79,9 @@ const ReservationForm: React.FC<IReservationFormProps> = ({ roomType }) => {
 		onSuccess: () => {
 			toast.success('Booking room was completed successfully')
 		},
+		onError: (error:any) => {
+			toast.error(error.message)
+		},
 	})
 
 	const { mutate: reserveTable } = useMutation({
@@ -87,7 +90,7 @@ const ReservationForm: React.FC<IReservationFormProps> = ({ roomType }) => {
 		onSuccess: response => {
 			toast.success('Booking table was completed successfully')
 		},
-		onError: () => {
+		onError: (error:any) => {
 			toast.error('No available table with the specified capacity')
 		},
 	})

@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { Route, Routes, useLocation } from 'react-router-dom'
+import { Route, Routes, useLocation, Navigate } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { AnimatePresence } from 'framer-motion'
@@ -24,6 +24,8 @@ function App() {
   const location = useLocation()
   const authPages = [PAGES.SIGNUP, PAGES.SIGNUPCOMPLETE, PAGES.LOGIN]
   const isAuthPage = authPages.includes(location.pathname)
+
+  const isAuthenticated = localStorage.getItem('jwt') 
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -69,7 +71,11 @@ function App() {
             />
             <Route
               path={PAGES.PROFILE}
-              element={<AnimatedRoute><Profile /></AnimatedRoute>}
+              element={isAuthenticated ? (
+                <AnimatedRoute><Profile /></AnimatedRoute>
+              ) : (
+                <Navigate to={PAGES.LOGIN} replace />
+              )}
             />
             <Route
               path={PAGES.TABLES}
